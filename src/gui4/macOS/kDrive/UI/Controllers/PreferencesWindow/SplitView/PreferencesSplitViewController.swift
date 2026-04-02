@@ -82,8 +82,13 @@ final class PreferencesSplitViewController: IKSplitViewController {
     }
 
     func onPathChange(_ path: PreferencesViewRouter.RouterPath) {
+        guard let detail = path.details.last else {
+            switchContentViewController(destination: GeneralPreferencesViewController(repository: repository))
+            return
+        }
+
         let contentViewController: NSViewController
-        switch path.details.last {
+        switch detail {
         case .general:
             contentViewController = GeneralPreferencesViewController(repository: repository)
         case .accounts:
@@ -92,8 +97,8 @@ final class PreferencesSplitViewController: IKSplitViewController {
             contentViewController = AdvancedPreferencesViewController()
         case .syncedKDrive(let drive):
             contentViewController = SyncedKDrivePreferencesViewController(drive: drive)
-        default:
-            contentViewController = GeneralPreferencesViewController(repository: repository)
+        case .debugLogs:
+            contentViewController = DebugLogsPreferencesViewController(repository: repository)
         }
 
         switchContentViewController(destination: contentViewController)

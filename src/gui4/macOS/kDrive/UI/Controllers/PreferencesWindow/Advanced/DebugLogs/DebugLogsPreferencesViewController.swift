@@ -18,10 +18,11 @@
 
 import Cocoa
 import kDriveCoreUI
+import kDriveResources
 import SwiftUI
 
 class DebugLogsPreferencesViewController: TitledViewController<DebugLogsPreferencesView> {
-    convenience init() {
-        self.init(toolbarTitle: SidebarItem.advanced.title, contentView: DebugLogsPreferencesView())
+    convenience init(repository: PreferencesRepository) {
+        self.init(toolbarTitle: KDriveLocalizable.debugLogsSettings, contentView: DebugLogsPreferencesView())
     }
 }

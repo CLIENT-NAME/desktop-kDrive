@@ -49,7 +49,16 @@ enum AdvancedPreferencesItem: String, Identifiable, CaseIterable {
     }
 
     var preferencesViewDetail: PreferencesViewDetail {
-        fatalError("Not yet implemented")
+        switch self {
+        case .synchroRules:
+            fatalError("Not yet implemented")
+        case .dataManagement:
+            fatalError("Not yet implemented")
+        case .network:
+            fatalError("Not yet implemented")
+        case .debugLogs:
+            return .debugLogs
+        }
     }
 }
 
