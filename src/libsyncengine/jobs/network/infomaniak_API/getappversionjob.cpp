@@ -40,6 +40,7 @@ static const std::string buildVersionKey = "build_version";
 static const std::string buildMinOsVersionKey = "build_min_os_version";
 static const std::string downloadUrlKey = "download_link";
 static const std::string minVersionKey = "min_version";
+static const std::string checksumKey = "checksum";
 
 GetAppVersionJob::GetAppVersionJob(const Platform platform, const std::string &appID) :
     GetAppVersionJob(platform, appID, {}) {}
@@ -155,8 +156,10 @@ ExitInfo GetAppVersionJob::handleResponse(std::istream &is) {
         (void) JsonParserUtility::extractValue(obj, buildVersionKey, _versionsInfo[channel].buildVersion);
         (void) JsonParserUtility::extractValue(obj, buildMinOsVersionKey, _versionsInfo[channel].buildMinOsVersion);
         (void) JsonParserUtility::extractValue(obj, downloadUrlKey, _versionsInfo[channel].downloadUrl);
+        (void) JsonParserUtility::extractValue(obj, checksumKey, _versionsInfo[channel].checksum);
 
-        if (!_versionsInfo[channel].isValid()) {
+
+       if (!_versionsInfo[channel].isValid()) {
             if (channel == VersionChannel::Prod) {
                 LOG_ERROR(_logger, "Missing mandatory value for production version");
                 _versionsInfo.clear();
