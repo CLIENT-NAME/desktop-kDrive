@@ -87,6 +87,7 @@ class MockGetAppVersionJob final : public GetAppVersionJob {
             (void) versionObj.set("build_version", buildVersion);
             (void) versionObj.set("build_min_os_version", "1.1");
             (void) versionObj.set("download_link", "test");
+            (void) versionObj.set("checksum", "test");
 
             Poco::JSON::Array publishedVersionsArray;
             for (const auto channel:
@@ -99,6 +100,7 @@ class MockGetAppVersionJob final : public GetAppVersionJob {
                 (void) tmpObj.set("build_version", buildVersion);
                 (void) tmpObj.set("build_min_os_version", "1.1");
                 (void) tmpObj.set("download_link", "test");
+                (void) tmpObj.set("checksum", "test");
                 (void) publishedVersionsArray.add(tmpObj);
             }
 
