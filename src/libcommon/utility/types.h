@@ -633,6 +633,7 @@ struct VersionInfo {
             channel = VersionChannel::Unknown;
             tag.clear();
             buildVersion = 0;
+            checksum.clear();
             buildMinOsVersion.clear();
             downloadUrl.clear();
             checksum.clear();
