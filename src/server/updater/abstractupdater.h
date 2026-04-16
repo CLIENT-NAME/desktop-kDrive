@@ -93,6 +93,7 @@ class AbstractUpdater {
         bool _appShouldBeBlocked{false};
 
         friend class TestAbstractUpdater;
+        friend class TestWindowsUpdater;
 };
 
 std::unique_ptr<AbstractUpdater> createUpdater();

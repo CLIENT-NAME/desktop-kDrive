@@ -32,6 +32,11 @@ class MockUpdateChecker : public UpdateChecker {
         void setBigMinAppVersion(const bool val) { _bigMinAppVersion = val; }
         void setAllVersionInfo(const AllVersionsInfo &versionInfo) { _versionsInfo = versionInfo; }
         void setVersionReceived(const bool isVersionReceived) { _isVersionReceived = isVersionReceived; }
+        void setChecksumForAllChannels(const std::string &checksum) {
+            for (auto &[channel, info]: _versionsInfo) {
+                info.checksum = checksum;
+            }
+        }
 
     private:
         ExitCode generateGetAppVersionJob(std::shared_ptr<AbstractNetworkJob> &job) override {
