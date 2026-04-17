@@ -125,7 +125,7 @@ void TestAbstractUpdater::testIsVersionSkipped() {
     CPPUNIT_ASSERT(!AbstractUpdater::isVersionSkipped("3.3.3.20200101"));
 }
 
-void generateValidAllVersionsInfo(AllVersionsInfo &versionsInfo) {
+void TestAbstractUpdater::generateValidAllVersionsInfo(AllVersionsInfo &versionsInfo) {
     versionsInfo[VersionChannel::Next].channel = VersionChannel::Next;
     versionsInfo[VersionChannel::Next].tag = "10.0.0";
     versionsInfo[VersionChannel::Next].buildVersion = 20210101;
