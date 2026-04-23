@@ -178,6 +178,7 @@ void TestWindowsUpdater::testIsChecksumValid() {
         if (testCase.fileName == "picture-1.jpg") {
             (void) IoHelper::copyFileOrDirectory(testhelpers::localTestDirPath() / "test_pictures/picture-1.jpg", tmpDir.path(),
                                                  ioError);
+            CPPUNIT_ASSERT_EQUAL(IoError::Success, ioError);
         }
 
         WindowsUpdater updater;
