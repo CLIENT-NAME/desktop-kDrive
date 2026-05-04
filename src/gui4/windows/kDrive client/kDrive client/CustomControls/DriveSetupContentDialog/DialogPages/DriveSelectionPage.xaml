@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
  * Infomaniak kDrive - Desktop
  * Copyright (C) 2023-2026 Infomaniak Network SA
@@ -89,12 +89,12 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <controls:SvgIcon Grid.Column="0"
-                                              Grid.Row="0"
-                                              Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                              UriString="{StaticResource Infomaniak.DS.Icons.Products.kDrive}"
-                                              Foreground="{x:Bind Drive.Color, Converter={StaticResource ColorToBrushConverter}}"
-                                              VerticalAlignment="Center" />
+                            <PathIcon Grid.Column="0"
+                                      Grid.Row="0"
+                                      Style="{StaticResource Style.Icon.Size.S}"
+                                      Data="{StaticResource Infomaniak.Ressources.DS.Icons.Products.kdrive}"
+                                      Foreground="{x:Bind Drive.Color, Converter={StaticResource ColorToBrushConverter}}"
+                                      VerticalAlignment="Center" />
 
                             <!-- Drive name -->
                             <TextBlock Grid.Column="1"
@@ -135,7 +135,7 @@
                                          FontWeight="SemiBold" />
                                 </TextBlock>
                             </Grid>
-                            
+
                             <!-- Edit button -->
                             <HyperlinkButton Grid.Column="2"
                                              Grid.RowSpan="2"

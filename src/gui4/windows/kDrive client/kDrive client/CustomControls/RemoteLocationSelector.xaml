@@ -65,19 +65,19 @@
                         <ColumnDefinition Width="28" />
                     </Grid.ColumnDefinitions>
 
-                    <local:SvgIcon Grid.Column="0"
-                                   UriString="{StaticResource Infomaniak.DS.Icons.Products.kDrive}"
-                                   Foreground="{x:Bind Drive.Color, Converter={StaticResource ColorToBrushConverter}}"
-                                   Visibility="{x:Bind IsRoot, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource Infomaniak.Style.Icon.Size.S}" />
+                    <PathIcon Grid.Column="0"
+                              Data="{StaticResource Infomaniak.Ressources.DS.Icons.Products.kdrive}"
+                              Foreground="{x:Bind Drive.Color, Converter={StaticResource ColorToBrushConverter}}"
+                              Visibility="{x:Bind IsRoot, Converter={StaticResource BooleanToVisibilityConverter}}"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource Style.Icon.Size.S}" />
 
-                    <local:SvgIcon Grid.Column="0"
-                                   UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-outline}"
-                                   Foreground="{ThemeResource TextFillColorPrimary}"
-                                   Visibility="{x:Bind IsNotRoot, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource Infomaniak.Style.Icon.Size.S}" />
+                    <PathIcon Grid.Column="0"
+                              Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-outline}"
+                              Foreground="{ThemeResource TextFillColorPrimary}"
+                              Visibility="{x:Bind IsNotRoot, Converter={StaticResource BooleanToVisibilityConverter}}"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource Style.Icon.Size.S}" />
 
                     <TextBlock Grid.Column="1"
                                Text="{x:Bind Node.Name}"
@@ -119,11 +119,10 @@
                             IsEnabled="{x:Bind CanCreateSubFolder, Mode=OneWay}"
                             Visibility="{x:Bind CreateSubFolderButtonVisibility, Mode=OneWay}"
                             Click="CreateFolderButton_Click">
-                        <local:SvgIcon Height="16"
-                                       Width="16"
-                                       UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-circle-plus}"
-                                       Foreground="{ThemeResource AccentAAFillColorDefaultBrush}"
-                                       IsIconEnabled="{x:Bind CanCreateSubFolder, Mode=OneWay}" />
+                        <PathIcon Height="16"
+                                  Width="16"
+                                  Data="{StaticResource Infomaniak.DS.Icons.Documents.folder-circle-plus}"
+                                  Foreground="{ThemeResource AccentAAFillColorDefaultBrush}"/>
                     </Button>
                 </Grid>
             </TreeViewItem>
@@ -138,11 +137,11 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <local:SvgIcon Grid.Column="0"
-                                   UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-outline}"
-                                   Foreground="{ThemeResource TextFillColorPrimary}"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource Infomaniak.Style.Icon.Size.S}" />
+                    <PathIcon Grid.Column="0"
+                              Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-outline}"
+                              Foreground="{ThemeResource TextFillColorPrimary}"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource Style.Icon.Size.S}" />
 
                     <controls:ContentLoader Grid.Column="1"
                                             IsLoading="False"
@@ -182,11 +181,11 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <local:SvgIcon Grid.Column="0"
-                                   UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-block}"
-                                   Foreground="{ThemeResource TextFillColorTertiary}"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource Infomaniak.Style.Icon.Size.S}" />
+                    <PathIcon Grid.Column="0"
+                              Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-block}"
+                              Foreground="{ThemeResource TextFillColorTertiary}"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource Style.Icon.Size.S}" />
 
                     <TextBlock Grid.Column="1"
                                Foreground="{ThemeResource TextFillColorTertiary}"
@@ -209,13 +208,13 @@
                           MinWidth="40"
                           MinHeight="14" />
 
-                    <local:SvgIcon Grid.Column="4"
-                                   UriString="{StaticResource Infomaniak.DS.Icons.Actions.circle-block}"
-                                   Foreground="{ThemeResource TextFillColorTertiary}"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                   Margin="{StaticResource Infomaniak.Style.Thickness.Uniform.XXS}" />
+                    <PathIcon Grid.Column="4"
+                              Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.circle-block}"
+                              Foreground="{ThemeResource TextFillColorTertiary}"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource Style.Icon.Size.S}"
+                              Margin="{StaticResource Infomaniak.Style.Thickness.Uniform.XXS}" />
                 </Grid>
             </TreeViewItem>
         </DataTemplate>

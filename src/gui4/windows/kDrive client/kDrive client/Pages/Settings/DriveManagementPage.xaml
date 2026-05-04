@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
  * Infomaniak kDrive - Desktop
  * Copyright (C) 2023-2026 Infomaniak Network SA
@@ -60,9 +60,10 @@
             <StackPanel Spacing="{StaticResource Infomaniak.Style.Spacing.XS}">
                 <StackPanel Orientation="Horizontal"
                             Spacing="{StaticResource Infomaniak.Style.Spacing.XS}">
-                    <controls:SvgIcon Height="20"
-                                      UriString="{StaticResource Infomaniak.DS.Icons.Products.kDrive}"
-                                      Foreground="{x:Bind BaseDrive.Color, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
+                    <PathIcon Height="20"
+                              Width="20"
+                              Data="{StaticResource Infomaniak.Ressources.DS.Icons.Products.kdrive}"
+                              Foreground="{x:Bind BaseDrive.Color, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                     <TextBlock Text="{x:Bind BaseDrive.Name, Mode=OneWay}"
                                Style="{StaticResource BodyLargeTextBlockStyle}" />
                 </StackPanel>
@@ -74,9 +75,8 @@
                     <!-- Location -->
                     <toolKit:SettingsCard Header="{x:Bind kDrive:Localizer.Instance.GetString('labelSyncLocation')}">
                         <toolKit:SettingsCard.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-open}"
-                                              Height="20"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-open}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsCard.HeaderIcon>
                         <HyperlinkButton Content="{x:Bind ManagedDrive.MainSync.LocalPath, Mode=OneWay}"
                                          Click="LocationHyperLinkButton_Clicked" />
@@ -85,9 +85,8 @@
                     <!-- Folder Selection -->
                     <toolKit:SettingsExpander Header="{x:Bind kDrive:Localizer.Instance.GetString('labelSynchronisation')}">
                         <toolKit:SettingsExpander.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Arrows.arrow-loop}"
-                                              Height="32"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Arrows.arrows-loop}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
 
                         </toolKit:SettingsExpander.HeaderIcon>
                         <toolKit:SettingsExpander.Items>
@@ -118,9 +117,8 @@
                                               Header="{x:Bind kDrive:Localizer.Instance.GetString('fileSyncModeDescription')}"
                                               Visibility="{x:Bind ManagedDrive.MainSync.SupportOnlineMode, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
                         <toolKit:SettingsExpander.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Essentials.cog}"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                              Height="32" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Essentials.cog}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsExpander.HeaderIcon>
                         <toolKit:SettingsExpander.Items>
                             <toolKit:SettingsCard Background="{ThemeResource LayerFillColorDefault}"
@@ -220,9 +218,8 @@
                                 Click="SetupMainSyncButton_Click" />
                     </StackPanel>
                     <toolKit:SettingsCard.HeaderIcon>
-                        <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Arrows.arrow-loop}"
-                                          Height="32"
-                                          Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                        <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Arrows.arrows-loop}"
+                                  Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                     </toolKit:SettingsCard.HeaderIcon>
                 </toolKit:SettingsCard>
 
@@ -231,9 +228,8 @@
                                       IsClickEnabled="True"
                                       Click="AdvancedSyncsSettingsCard_Click">
                     <toolKit:SettingsCard.HeaderIcon>
-                        <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-connect}"
-                                          Height="32"
-                                          Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                        <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-connect}"
+                                  Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                     </toolKit:SettingsCard.HeaderIcon>
                 </toolKit:SettingsCard>
             </StackPanel>

@@ -50,24 +50,24 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <controls:SvgIcon Grid.Column="0"
-                                  UriString="{StaticResource Infomaniak.DS.Icons.Network.cloud}"
-                                  Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                  Style="{StaticResource Infomaniak.Style.Icon.Size.XS}"
-                                  VerticalAlignment="Center"
-                                  Visibility="{x:Bind IsRemote, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+                <PathIcon Grid.Column="0"
+                          Data="{StaticResource Infomaniak.Ressources.DS.Icons.Network.cloud}"
+                          Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                          Style="{StaticResource Style.Icon.Size.XS}"
+                          VerticalAlignment="Center"
+                          Visibility="{x:Bind IsRemote, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
 
                 <TextBlock Grid.Column="1"
                            Text="{x:Bind kDrive:Localizer.Instance.GetString('labelOnline')}"
                            VerticalAlignment="Center"
                            Visibility="{x:Bind IsRemote, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
 
-                <controls:SvgIcon Grid.Column="0"
-                                  UriString="{StaticResource Infomaniak.DS.Icons.Devices.computer}"
-                                  Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                  Style="{StaticResource Infomaniak.Style.Icon.Size.XS}"
-                                  VerticalAlignment="Center"
-                                  Visibility="{x:Bind IsRemote, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Inverted=true', Mode=OneWay}" />
+                <PathIcon Grid.Column="0"
+                          Data="{StaticResource Infomaniak.Ressources.DS.Icons.Devices.computer}"
+                          Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                          Style="{StaticResource Style.Icon.Size.XS}"
+                          VerticalAlignment="Center"
+                          Visibility="{x:Bind IsRemote, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Inverted=true', Mode=OneWay}" />
 
                 <TextBlock Grid.Column="1"
                            Text="{x:Bind kDrive:Localizer.Instance.GetString('labelLocal')}"
@@ -95,11 +95,11 @@
                         VerticalAlignment="Center"
                         Click="ViewButton_Click">
                     <StackPanel>
-                        <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Actions.eye}"
-                                          Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                          VerticalAlignment="Center"
-                                          Foreground="{ThemeResource AccentFillColorDefaultBrush}"
-                                          Visibility="{x:Bind ViewButton.IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+                        <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.eye}"
+                                  Style="{StaticResource Style.Icon.Size.S}"
+                                  VerticalAlignment="Center"
+                                  Foreground="{ThemeResource AccentFillColorDefaultBrush}"
+                                  Visibility="{x:Bind ViewButton.IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
                         <ProgressRing Height="12"
                                       Width="12"
                                       IsActive="True"
@@ -207,10 +207,10 @@
                           Unchecked="RemoteTogglebutton_Unchecked">
                 <StackPanel Orientation="Horizontal"
                             Spacing="{StaticResource Infomaniak.Style.Spacing.XS}">
-                    <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Actions.circle-check-outline}"
-                                      Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
-                                      Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                      Visibility="{x:Bind RemoteTogglebutton.IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+                    <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.circle-check-outline}"
+                              Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
+                              Style="{StaticResource Style.Icon.Size.S}"
+                              Visibility="{x:Bind RemoteTogglebutton.IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
 
                     <TextBlock Text="{x:Bind GetToggleButtonText(RemoteTogglebutton.IsChecked), Mode=OneWay}" />
                 </StackPanel>

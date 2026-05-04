@@ -26,7 +26,7 @@
              xmlns:kDrive="using:Infomaniak.kDrive"
              mc:Ignorable="d">
     <UserControl.Resources>
-        <converters:FilePathToIconResourceKeyConverter x:Key="FilePathToIconResourceKeyConverter" />
+        <converters:FilePathToFileIconUriConverter x:Key="FilePathToFileIconUriConverter" />
         <converters:StringPathToFileNameConverter x:Key="StringPathToFileNameConverter" />
         <converters:BytesToHumanReadableStringConverter x:Key="BytesToHumanReadableStringConverter" />
         <converters:DateTimeToTimeAgoConverter x:Key="DateTimeToTimeAgoConverter" />
@@ -77,11 +77,13 @@
                         </StackPanel>
                     </ToolTip>
                 </ToolTipService.ToolTip>
-                <local:SvgIcon Grid.Column="0"
-                               Grid.Row="0"
-                               Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                               ResourceKey="{x:Bind SearchItem.Name, Converter={StaticResource FilePathToIconResourceKeyConverter}}" />
-
+                <Image Grid.Column="0"
+                       Grid.Row="0"
+                       Height="16">
+                    <Image.Source>
+                        <SvgImageSource UriSource="{x:Bind SearchItem.Name, Converter={StaticResource FilePathToFileIconUriConverter}}" />
+                    </Image.Source>
+                </Image>
                 <TextBlock Grid.Column="1"
                            Grid.Row="0"
                            Text="{x:Bind SearchItem.Name}"
@@ -99,13 +101,13 @@
                     <Run Text="{x:Bind SearchItem.Size, Converter={StaticResource BytesToHumanReadableStringConverter}}" />
                 </TextBlock>
 
-                <local:SvgIcon Grid.Column="2"
-                               Grid.Row="0"
-                               Width="10"
-                               HorizontalAlignment="Right"
-                               UriString="{StaticResource Infomaniak.DS.Icons.Arrows.square-arrow-diagonal-up}"
-                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                               Visibility="{Binding ShowUnavailableState, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+                <PathIcon Grid.Column="2"
+                          Grid.Row="0"
+                          Width="10"
+                          HorizontalAlignment="Right"
+                          Data="{StaticResource Infomaniak.Ressources.DS.Icons.Arrows.square-arrow-diagonal-up}"
+                          Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                          Visibility="{Binding ShowUnavailableState, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
 
             </Grid>
         </DataTemplate>
@@ -150,12 +152,12 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <local:SvgIcon Grid.Column="0"
+                <PathIcon Grid.Column="0"
                                Grid.Row="0"
-                               Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
+                               Style="{StaticResource Style.Icon.Size.S}"
                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                               UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-outline}" />
-
+                               Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-outline}" />
+               
                 <TextBlock Grid.Column="1"
                            Grid.Row="0"
                            Text="{x:Bind SearchItem.Name}"
@@ -169,14 +171,14 @@
                     <Run Text="-" />
                     <Run Text="{x:Bind SearchItem.ModifiedTime, Converter={StaticResource DateTimeToTimeAgoConverter}, ConverterParameter='Format=Ago'}" />
                 </TextBlock>
-                <local:SvgIcon Grid.Column="2"
-                               Grid.Row="0"
-                               Width="10"
-                               HorizontalAlignment="Right"
-                               Margin="{StaticResource Infomaniak.Style.Thickness.Left.XS}"
-                               UriString="{StaticResource Infomaniak.DS.Icons.Arrows.square-arrow-diagonal-up}"
-                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                               Visibility="{Binding ShowUnavailableState, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+                <PathIcon Grid.Column="2"
+                          Grid.Row="0"
+                          Width="10"
+                          HorizontalAlignment="Right"
+                          Margin="{StaticResource Infomaniak.Style.Thickness.Left.XS}"
+                          Data="{StaticResource Infomaniak.Ressources.DS.Icons.Arrows.square-arrow-diagonal-up}"
+                          Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                          Visibility="{Binding ShowUnavailableState, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
             </Grid>
         </DataTemplate>
 
@@ -190,9 +192,13 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <local:SvgIcon UriString="{ThemeResource Infomaniak.Custom.Images.servin}"
-                               Height="100"
-                               HorizontalAlignment="Center" />
+                <Image Height="100"
+                       HorizontalAlignment="Center" >
+                    <Image.Source>
+                        <SvgImageSource UriSource="{ThemeResource Infomaniak.Custom.Images.servin}" />
+                    </Image.Source>
+                </Image>
+               
                 <TextBlock Grid.Row="1"
                            Text="{x:Bind kDrive:Localizer.Instance.GetString('noResultsFound'), Mode=OneWay}"
                            HorizontalAlignment="Center" />

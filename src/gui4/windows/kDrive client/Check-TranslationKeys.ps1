@@ -30,6 +30,11 @@ $usages = @{}
 foreach ($file in $sourceFiles) {
     $content = Get-Content -Path $file.FullName -Raw
     $relativePath = Get-RelativePath -fromPath $root -toPath $file.FullName
+	
+	if ([string]::IsNullOrWhiteSpace($content)) {
+		Write-Warning "Skipping empty or unreadable file: $($file.FullName)"
+		continue
+	}
 
     foreach ($match in [regex]::Matches($content, $literalPattern)) {
         $key = $match.Groups["key"].Value

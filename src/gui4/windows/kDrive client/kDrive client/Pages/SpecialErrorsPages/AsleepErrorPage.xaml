@@ -64,7 +64,7 @@
 
             <!-- Status indicator above the content -->
             <controls:DriveStatusIndicator Drive="{x:Bind ViewModel.SelectedSync.Drive, Mode=OneWay}"
-                                           IconUri="{StaticResource Infomaniak.DS.Icons.Essentials.moon-sleep}"
+                                           Icon="{StaticResource Infomaniak.Ressources.DS.Icons.Essentials.moon-sleep}"
                                            IconForegroundBrush="{ThemeResource AccentAAFillColorDefaultBrush}"
                                            IconBackgroundBrush="{ThemeResource LayerOnMicaBaseAltFillColorDefault}"
                                            RelativePanel.Above="ContentPanel"

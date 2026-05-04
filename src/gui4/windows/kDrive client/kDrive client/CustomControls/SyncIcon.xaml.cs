@@ -18,14 +18,16 @@
 using Infomaniak.kDrive.Types;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Markup;
+using Microsoft.UI.Xaml.Media;
 using System.Linq;
 
 namespace Infomaniak.kDrive.CustomControls
 {
     public sealed partial class SyncIcon : UserControl
     {
-        private const string ClassicSyncIconResourceKey = "Infomaniak.DS.Icons.Products.kDrive";
-        private const string AdvancedSyncIconUriResourceKey = "Infomaniak.DS.Icons.Documents.folder-outline";
+        private const string ClassicSyncIconResourceKey = "Infomaniak.Ressources.DS.Icons.Products.kdrive";
+        private const string AdvancedSyncIconUriResourceKey = "Infomaniak.Ressources.DS.Icons.Documents.folder-outline";
 
         // DependencyProperty
         public ISync? Sync
@@ -34,15 +36,15 @@ namespace Infomaniak.kDrive.CustomControls
             set => SetValue(SyncProperty, value);
         }
 
-        public string IconUri
+        public Geometry? Icon
         {
-            get => (string)GetValue(IconUriProperty);
-            set => SetValue(IconUriProperty, value);
+            get => (Geometry?)GetValue(IconProperty);
+            set => SetValue(IconProperty, value);
         }
 
         public static readonly DependencyProperty SyncProperty = DependencyProperty.Register(nameof(Sync), typeof(ISync), typeof(SyncIcon), new PropertyMetadata(null, OnSyncChanged));
 
-        private static readonly DependencyProperty IconUriProperty = DependencyProperty.Register(nameof(IconUri), typeof(string), typeof(SyncIcon), new PropertyMetadata(""));
+        private static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(Geometry), typeof(SyncIcon), new PropertyMetadata(""));
 
         public SyncIcon()
         {
@@ -64,9 +66,17 @@ namespace Infomaniak.kDrive.CustomControls
 
             var application = Application.Current;
             if (application is not null && application.Resources.ContainsKey(iconKey))
-                control.IconUri = application.Resources[iconKey] as string ?? "";
+            {
+                string? pathData = application.Resources[iconKey] as string;
+                if(pathData is null)
+                {
+                    Logger.Log(Logger.Level.Error, $"Resource for SyncIcon with key {iconKey} should be a string but was not found or is not a string.");
+                }
+                control.Icon = (Geometry)XamlBindingHelper.ConvertValue(typeof(Geometry), pathData);
+            }
+
             else
-                control.IconUri = "";
+                control.Icon = null;
         }
     }
 }

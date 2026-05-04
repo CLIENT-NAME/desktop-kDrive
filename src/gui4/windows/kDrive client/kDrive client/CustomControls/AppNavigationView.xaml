@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
  * Infomaniak kDrive - Desktop
  * Copyright (C) 2023-2026 Infomaniak Network SA
@@ -59,9 +59,9 @@
                             MinHeight="30"
                             IsSelected="True">
             <NavigationViewItem.Icon>
-                <controls:SvgIcon Height="32"
-                                  UriString="{StaticResource Infomaniak.DS.Icons.Essentials.house}"
-                                  Foreground="{ThemeResource TextFillColorPrimary}" />
+                <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Essentials.house}"
+                          Foreground="{ThemeResource TextFillColorPrimary}" 
+                          RasterizationScale="{x:Bind XamlRoot.RasterizationScale, Mode=OneWay}"/>
             </NavigationViewItem.Icon>
         </NavigationViewItem>
         <NavigationViewItem Content="{x:Bind kDrive:Localizer.Instance.GetString('tabTitleActivities'), Mode=OneWay}"
@@ -69,9 +69,9 @@
                             MinHeight="30"
                             IsEnabled="{x:Bind ViewModel.SelectedSync, Converter={StaticResource IsNullToBoolOrVisibilityConverter}, ConverterParameter='Inverted=True', Mode=OneWay}">
             <NavigationViewItem.Icon>
-                <controls:SvgIcon Height="32"
-                                  UriString="{StaticResource Infomaniak.DS.Icons.Arrows.arrow-loop}"
-                                  Foreground="{ThemeResource TextFillColorPrimary}" />
+                <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Arrows.arrows-loop}"
+                          Foreground="{ThemeResource TextFillColorPrimary}" 
+                          RasterizationScale="{x:Bind XamlRoot.RasterizationScale, Mode=OneWay}"/>
             </NavigationViewItem.Icon>
             <NavigationViewItem.InfoBadge>
                 <InfoBadge Style="{StaticResource AttentionDotInfoBadgeStyle}"
@@ -84,9 +84,9 @@
                             MinHeight="30"
                             IsEnabled="{x:Bind ViewModel.SelectedSync, Converter={StaticResource IsNullToBoolOrVisibilityConverter}, ConverterParameter='Inverted=True', Mode=OneWay}">
             <NavigationViewItem.Icon>
-                <controls:SvgIcon Height="32"
-                                  UriString="{StaticResource Infomaniak.DS.Icons.Network.hardware-outline}"
-                                  Foreground="{ThemeResource TextFillColorPrimary}" />
+                <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Network.hardware-outline}"
+                          Foreground="{ThemeResource TextFillColorPrimary}" 
+                          RasterizationScale="{x:Bind XamlRoot.RasterizationScale, Mode=OneWay}"/>
             </NavigationViewItem.Icon>
         </NavigationViewItem>
     </NavigationView.MenuItems>
@@ -97,9 +97,9 @@
                             MinHeight="30"
                             IsEnabled="{x:Bind ViewModel.SelectedSync, Converter={StaticResource IsNullToBoolOrVisibilityConverter}, ConverterParameter='Inverted=True', Mode=OneWay}">
             <NavigationViewItem.Icon>
-                <controls:SvgIcon Height="32"
-                                  UriString="{StaticResource Infomaniak.DS.Icons.folder-circle-arrow-right}"
-                                  Foreground="{ThemeResource TextFillColorPrimary}" />
+                <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-circle-arrow-right}"
+                          Foreground="{ThemeResource TextFillColorPrimary}"
+                          RasterizationScale="{x:Bind XamlRoot.RasterizationScale, Mode=OneWay}" />
             </NavigationViewItem.Icon>
         </NavigationViewItem>
     </NavigationView.PaneFooter>

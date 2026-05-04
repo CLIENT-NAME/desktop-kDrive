@@ -28,11 +28,12 @@
     <StackPanel  VerticalAlignment="Center"
                  HorizontalAlignment="Center"
                  Spacing="{StaticResource Infomaniak.Style.Spacing.L}">
-
-        <local:SvgIcon Grid.Row="0"
-                       Height="80"
-                       UriString="{ThemeResource Infomaniak.Custom.Icons.logo-mobile}" />
-
+        <Image Grid.Row="0"
+               Height="80" >
+            <Image.Source>
+                <SvgImageSource UriSource="{ThemeResource Infomaniak.Custom.Icons.logo-mobile}" />
+            </Image.Source>
+        </Image>
         <ProgressRing Grid.Row="1"
                       Height="32"
                       Width="32"

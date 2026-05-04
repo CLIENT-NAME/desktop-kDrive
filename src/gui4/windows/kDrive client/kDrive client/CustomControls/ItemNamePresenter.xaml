@@ -28,7 +28,7 @@
     <UserControl.Resources>
         <converters:IsNullToBoolOrVisibilityConverter x:Key="IsNullToBoolOrVisibilityConverter" />
         <converters:StringPathToFileNameConverter x:Key="StringPathToFileNameConverter" />
-        <converters:FilePathToIconResourceKeyConverter x:Key="FilePathToIconResourceKeyConverter" />
+        <converters:FilePathToFileIconUriConverter x:Key="FilePathToFileIconUriConverter" />
     </UserControl.Resources>
     <Border Grid.Row="1"
             Grid.Column="0"
@@ -49,16 +49,25 @@
                 <ToolTip Content="{x:Bind ItemPath, Mode=OneWay}"
                          Placement="Mouse" />
             </ToolTipService.ToolTip>
-            <controls:SvgIcon Grid.Column="0"
-                              ResourceKey="{x:Bind ItemPath, Converter={StaticResource FilePathToIconResourceKeyConverter}}"
-                              Style="{StaticResource Infomaniak.Style.Icon.Size.XXS}"
-                              Visibility="{x:Bind IsFileIconVisible}" />
-            
-            <controls:SvgIcon Grid.Column="0"
-                              UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-outline}"
-                              Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                              Style="{StaticResource Infomaniak.Style.Icon.Size.XXS}"
-                              Visibility="{x:Bind IsDirectoryIconVisible}" />
+            <Image Grid.Column="0"
+                   Grid.Row="0"
+                   Height="16">     
+                <Image.Source>
+                    <SvgImageSource UriSource="{x:Bind ItemPath, Converter={StaticResource FilePathToFileIconUriConverter}}" />
+                </Image.Source>
+            </Image>
+            <Image Height="100"
+                   HorizontalAlignment="Center" >
+                <Image.Source>
+                    <SvgImageSource UriSource="{ThemeResource Infomaniak.Custom.Images.servin}" />
+                </Image.Source>
+            </Image>
+
+            <PathIcon Grid.Column="0"
+                      Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-outline}"
+                      Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                      Style="{StaticResource Style.Icon.Size.XXS}"
+                      Visibility="{x:Bind IsDirectoryIconVisible}" />
 
             <TextBlock Grid.Column="1"
                        Margin="0"

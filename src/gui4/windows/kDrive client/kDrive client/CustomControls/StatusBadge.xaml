@@ -30,11 +30,11 @@
             BorderBrush="{x:Bind Foreground, Mode=OneWay}">
         <Grid>
             <Ellipse Fill="{x:Bind Background, Mode=OneWay}" />
-            <local:SvgIcon Height="{x:Bind GetIconSize(Height), Mode=OneWay}"
-                           Width="{x:Bind GetIconSize(Width), Mode=OneWay}"
-                           UriString="{x:Bind IconUri, Mode=OneWay}"
-                           Foreground="{x:Bind Foreground, Mode=OneWay}"
-                           Margin="{StaticResource Infomaniak.Style.Thickness.Uniform.XS}" />
+            <PathIcon Height="{x:Bind GetIconSize(Height), Mode=OneWay}"
+                      Width="{x:Bind GetIconSize(Width), Mode=OneWay}"
+                      Data="{x:Bind Icon, Mode=OneWay}"
+                      Foreground="{x:Bind Foreground, Mode=OneWay}"
+                      Margin="{StaticResource Infomaniak.Style.Thickness.Uniform.XS}" />
         </Grid>
     </Border>
 </UserControl>

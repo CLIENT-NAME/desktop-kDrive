@@ -328,6 +328,7 @@
     <Folder Include="AnimatedElements\" />
     <Folder Include="Assets\DS\Icons\Communication\" />
     <Folder Include="CustomControls\DriveSetupContentDialog\DialogPages\" />
+    <Folder Include="Styles\Generated\" />
   </ItemGroup>
   <ItemGroup>
     <Page Update="CustomControls\SyncActivityTable.xaml">
@@ -354,6 +355,9 @@
     <None Update="CustomControls\LocalizedHyperlinkText.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+    <None Update="Styles\Generated\SvgIconResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="powershell -ExecutionPolicy Bypass -NoProfile -File &quot;$(ProjectDir)Assets\Custom\Animations\lottieConverter.ps1&quot; -Directory &quot;$(ProjectDir)Assets\Custom\Animations&quot;" />
@@ -367,5 +371,27 @@
       <RemovingFolders Include="@(RemovingFiles-&gt;'%(RootDir)%(Directory)')" />
     </ItemGroup>
     <RemoveDir Directories="@(RemovingFolders)" />
+  </Target>
+  <!-- Exclude RawAssets from output -->
+  <ItemGroup>
+    <None Include="RawAssets\**\*" />
+    <Content Remove="RawAssets\**\*" />
+    <EmbeddedResource Remove="Generated\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RawAssets\Custom\Icons\Devices\cloud-sync.svg" />
+    <Content Include="RawAssets\Custom\Icons\Devices\computer-sync.svg" />
+    <Content Include="RawAssets\Custom\Images\hardware.svg" />
+    <Content Include="RawAssets\Custom\Images\kDrive-folder-dark.svg" />
+    <Content Include="RawAssets\Custom\Images\kDrive-folder-light.svg" />
+    <Content Include="RawAssets\Custom\Images\kDrive-folder-sync-warning-light.svg" />
+    <Content Include="RawAssets\Custom\Images\kDrive.svg" />
+    <Content Include="RawAssets\Custom\Images\servin-dark.svg" />
+    <Content Include="RawAssets\Custom\Images\servin-light.svg" />
+    <Content Include="RawAssets\DS\Icons\Actions\star.svg" />
+  </ItemGroup>
+  <!-- Generate SVG path-data resource dictionary before build -->
+  <Target Name="GenerateSvgResources" BeforeTargets="PreBuildEvent">
+    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\Generate-SvgResources.ps1&quot; -RawAssetsDir &quot;$(MSBuildProjectDirectory)\RawAssets&quot; -OutputFile &quot;$(MSBuildProjectDirectory)\Styles\Generated\SvgIconResources.xaml&quot;" />
   </Target>
 </Project>

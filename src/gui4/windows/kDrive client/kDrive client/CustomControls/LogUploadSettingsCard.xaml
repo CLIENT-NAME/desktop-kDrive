@@ -74,36 +74,36 @@
         <!-- Success -->
         <DataTemplate x:Key="LastUploadStatusSuccessTemplate"
                       x:DataType="types:LogUploadState">
-            <local:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Actions.circle-check-outline}"
-                           Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                           Foreground="{ThemeResource SystemFillColorSuccessBrush}"
-                           VerticalAlignment="Center">
+            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.circle-check-outline}"
+                     Style="{StaticResource Style.Icon.Size.S}"
+                     Foreground="{ThemeResource SystemFillColorSuccessBrush}"
+                     VerticalAlignment="Center">
                 <ToolTipService.ToolTip>
                     <ToolTip Content="{Binding ElementName=LogUploadSettingsCardRoot, Path=LogUploadManager.LastSuccessfullUpload, Mode=OneWay}" />
                 </ToolTipService.ToolTip>
-            </local:SvgIcon>
+            </PathIcon>
         </DataTemplate>
 
         <!-- Error -->
         <DataTemplate x:Key="LastUploadStatusErrorTemplate"
                       x:DataType="types:LogUploadState">
-            <local:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Actions.triangle-alert-outline}"
-                           Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                           Foreground="{ThemeResource SystemFillColorCautionBrush}"
-                           VerticalAlignment="Center">
+            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.triangle-alert-outline}"
+                     Style="{StaticResource Style.Icon.Size.S}"
+                     Foreground="{ThemeResource SystemFillColorCautionBrush}"
+                     VerticalAlignment="Center">
                 <ToolTipService.ToolTip>
                     <ToolTip Content="{x:Bind kDrive:Localizer.Instance.GetString('logsUploadErrorTooltip')}" />
                 </ToolTipService.ToolTip>
-            </local:SvgIcon>
+            </PathIcon>
         </DataTemplate>
 
         <!-- Canceled -->
         <DataTemplate x:Key="LastUploadStatusCancelRequestedTemplate"
                       x:DataType="types:LogUploadState">
-            <local:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Actions.circle-block}"
-                           Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                           VerticalAlignment="Center" />
+            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.circle-block}"
+                     Style="{StaticResource Style.Icon.Size.S}"
+                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                     VerticalAlignment="Center" />
         </DataTemplate>
 
         <!-- Template selector -->
@@ -123,9 +123,8 @@
     </toolKit:SettingsCard.Header>
 
     <toolKit:SettingsCard.HeaderIcon>
-        <local:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Devices.headphones}"
-                       Height="32"
-                       Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+        <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Devices.headphones}"
+                  Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
     </toolKit:SettingsCard.HeaderIcon>
 
     <Grid>

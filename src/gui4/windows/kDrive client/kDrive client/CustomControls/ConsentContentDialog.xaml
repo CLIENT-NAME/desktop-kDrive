@@ -30,9 +30,12 @@
 
         <ContentDialog.TitleTemplate>
             <DataTemplate>
-                <local:SvgIcon UriString="{Binding ElementName=Root,Path=LogoUriStr}"
-                               Height="{StaticResource Infomaniak.Style.Spacing.L}"
-                               HorizontalAlignment="Left" />
+                <Image Height="{StaticResource Infomaniak.Style.Spacing.L}"
+                       HorizontalAlignment="Left" >
+                    <Image.Source>
+                        <SvgImageSource UriSource="{Binding ElementName=Root,Path=LogoUriStr}" />
+                    </Image.Source>
+                </Image>
             </DataTemplate>
         </ContentDialog.TitleTemplate>
 

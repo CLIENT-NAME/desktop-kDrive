@@ -37,9 +37,9 @@
 
             <StackPanel Orientation="Horizontal"
                         Spacing="{StaticResource Infomaniak.Style.Spacing.XS}">
-                <local:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Products.kDrive}"
-                               Foreground="{x:Bind Drive.Color, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
-                               Height="16" />
+                <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Products.kdrive}"
+                          Foreground="{x:Bind Drive.Color, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                          Height="16" />
 
                 <TextBlock Text="{x:Bind Drive.Name, Mode=OneWay}"
                            VerticalAlignment="Center" />
@@ -50,7 +50,7 @@
                            Height="40"
                            Foreground="{x:Bind IconForegroundBrush, Mode=OneWay}"
                            Background="{x:Bind IconBackgroundBrush, Mode=OneWay}"
-                           IconUri="{x:Bind IconUri, Mode=OneWay}"
+                           Icon="{x:Bind Icon, Mode=OneWay}"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Top"
                            Margin="0,-18,-18,0" />

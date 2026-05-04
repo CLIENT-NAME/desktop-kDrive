@@ -40,9 +40,8 @@
                       x:DataType="viewmodel:Sync">
             <toolKit:SettingsExpander Header="{x:Bind LocalPath, Converter={StaticResource StringPathToFileNameConverter}}">
                 <toolKit:SettingsExpander.HeaderIcon>
-                    <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-outline}"
-                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                      Height="32" />
+                    <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-outline}"
+                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                 </toolKit:SettingsExpander.HeaderIcon>
                 <toolKit:SettingsExpander.Items>
                     <!-- Local path -->
@@ -78,8 +77,8 @@
                                                     Visibility="{x:Bind HasExcludedFolder, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Inverted=True', Mode=OneWay}"
                                                     Spacing="{StaticResource Infomaniak.Style.Spacing.XXS}"
                                                     VerticalAlignment="Center">
-                                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Actions.circle-check-outline}"
-                                                              Style="{StaticResource Infomaniak.Style.Icon.Size.XS}"
+                                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.circle-check-outline}"
+                                                              Style="{StaticResource Style.Icon.Size.XS}"
                                                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                                             <TextBlock Text="{x:Bind kDrive:Localizer.Instance.GetString('labelAllFolders')}"
                                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -90,8 +89,8 @@
                                                     Spacing="{StaticResource Infomaniak.Style.Spacing.XXS}"
                                                     VerticalAlignment="Center">
 
-                                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Edition.pencil}"
-                                                              Style="{StaticResource Infomaniak.Style.Icon.Size.XS}"
+                                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Edition.pencil}"
+                                                              Style="{StaticResource Style.Icon.Size.XS}"
                                                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                                             <TextBlock Text="{x:Bind kDrive:Localizer.Instance.GetString('onboardingExclusionSummarySome')}"
                                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}" />

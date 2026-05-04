@@ -17,6 +17,7 @@
  */
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace Infomaniak.kDrive.CustomControls
 {
@@ -28,13 +29,13 @@ namespace Infomaniak.kDrive.CustomControls
         }
 
         // DependencyProperty
-        public string IconUri
+        public string Icon
         {
-            get => (string)GetValue(IconUriProperty);
-            set => SetValue(IconUriProperty, value);
+            get => (string)GetValue(IconProperty);
+            set => SetValue(IconProperty, value);
         }
 
-        public static readonly DependencyProperty IconUriProperty = DependencyProperty.Register(nameof(IconUri), typeof(string), typeof(StatusBadge), new PropertyMetadata(null));
+        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(Geometry), typeof(StatusBadge), new PropertyMetadata(null));
 
         private double GetIconSize(double size) => size * 0.5;
     }

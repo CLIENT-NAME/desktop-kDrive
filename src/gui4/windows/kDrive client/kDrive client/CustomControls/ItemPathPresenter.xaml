@@ -64,9 +64,9 @@
                     Width="16"
                     Height="16"
                     VerticalAlignment="Center">
-                <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Actions.copy-paste}"
-                                  Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                  Style="{StaticResource Infomaniak.Style.Icon.Size.XS}" />
+                <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.copy-paste}"
+                          Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                          Style="{StaticResource Style.Icon.Size.XS}" />
             </Button>
         </Grid>
     </Border>

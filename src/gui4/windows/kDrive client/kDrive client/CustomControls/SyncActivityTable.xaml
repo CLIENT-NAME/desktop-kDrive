@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
  * Infomaniak kDrive - Desktop
  * Copyright (C) 2023-2026 Infomaniak Network SA
@@ -32,10 +32,10 @@
     <UserControl.Resources>
         <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <converters:StringPathToFileNameConverter x:Key="StringPathToFileNameConverter" />
-        <converters:FilePathToIconResourceKeyConverter x:Key="FilePathToIconResourceKeyConverter" />
+        <converters:FilePathToFileIconUriConverter x:Key="FilePathToFileIconUriConverter" />
         <converters:DateTimeToTimeAgoConverter x:Key="DateTimeToTimeAgoConverter" />
         <converters:BytesToHumanReadableStringConverter x:Key="BytesToHumanReadableStringConverter" />
-        <converters:SyncActivityDirectionToIconUriConverter x:Key="SyncActivityDirectionToIconConverter" />
+        <converters:SyncActivityDirectionToPathDataConverter x:Key="SyncActivityDirectionToPathDataConverter" />
         <converters:BooleanToInvertedBooleanConverter x:Key="BooleanToInvertedBooleanConverter" />
         <converters:BindingLocalizerHelper x:Key="BindingLocalizerHelper" />
 
@@ -58,10 +58,12 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <local:SvgIcon Grid.Row="0"
-                           Height="120"
-                           UriString="{ThemeResource Infomaniak.Custom.Images.servin}" />
-
+            <Image Grid.Row="0"
+                   Height="120" >
+                <Image.Source>
+                    <SvgImageSource UriSource="{ThemeResource Infomaniak.Custom.Images.servin}" />
+                </Image.Source>
+            </Image>
             <StackPanel Grid.Row="1"
                         Spacing="{StaticResource Infomaniak.Style.Spacing.S}">
                 <!--  Title  -->
@@ -151,14 +153,18 @@
                             </DataTemplate>
                             <DataTemplate x:Key="FileIconTemplate"
                                           x:DataType="viewmodels:SyncFileItem">
-                                <controls:SvgIcon Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                                  ResourceKey="{x:Bind Path, Converter={StaticResource FilePathToIconResourceKeyConverter}}" />
+                                <Image Height="16"
+                                       HorizontalAlignment="Center" >
+                                    <Image.Source>
+                                        <SvgImageSource UriSource="{x:Bind Path, Converter={StaticResource FilePathToFileIconUriConverter}}" />
+                                    </Image.Source>
+                                </Image>
                             </DataTemplate>
                             <DataTemplate x:Key="DirectoryIconTemplate"
                                           x:DataType="viewmodels:SyncFileItem">
-                                <controls:SvgIcon  Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                                   Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                                   UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-outline}" />
+                                <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-outline}"
+                                          Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                          Style="{StaticResource Style.Icon.Size.S}" />
                             </DataTemplate>
 
                             <local:ItemTypeDataTemplateSelector x:Key="ItemTypeSizeDataTemplateSelector"
@@ -170,24 +176,24 @@
 
                             <DataTemplate x:Key="SynchronizationErrorTemplate"
                                           x:DataType="types:SyncFileStatus">
-                                <controls:SvgIcon  Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                                   PointerPressed="ItemErrorIcon_PointerPressed"
-                                                   Foreground="{ThemeResource Infomaniak.DS.colors.status.medium.warning}"
-                                                   UriString="{StaticResource Infomaniak.DS.Icons.Actions.triangle-alert-outline}">
+                                <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.triangle-alert-outline}"
+                                          Style="{StaticResource Style.Icon.Size.S}"
+                                          PointerPressed="ItemErrorIcon_PointerPressed"
+                                          Foreground="{ThemeResource Infomaniak.DS.colors.status.medium.warning}">
                                     <ToolTipService.ToolTip>
                                         <ToolTip Content="{x:Bind kDrive:Localizer.Instance.GetString('syncErrorTooltip')}" />
                                     </ToolTipService.ToolTip>
-                                </controls:SvgIcon>
+                                </PathIcon>
                             </DataTemplate>
                             <DataTemplate x:Key="SynchronizedTemplate"
                                           x:DataType="types:SyncFileStatus">
-                                <controls:SvgIcon  Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                                   Foreground="{ThemeResource Infomaniak.DS.colors.status.medium.success}"
-                                                   UriString="{StaticResource Infomaniak.DS.Icons.Actions.circle-check-outline}">
+                                <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.circle-check-outline}"
+                                          Style="{StaticResource Style.Icon.Size.S}"
+                                          Foreground="{ThemeResource Infomaniak.DS.colors.status.medium.success}">
                                     <ToolTipService.ToolTip>
                                         <ToolTip Content="{x:Bind kDrive:Localizer.Instance.GetString('syncSuccessTooltip')}" />
                                     </ToolTipService.ToolTip>
-                                </controls:SvgIcon>
+                                </PathIcon>
 
                             </DataTemplate>
                             <DataTemplate x:Key="SynchronizingTemplate">
@@ -226,35 +232,35 @@
                                         Visibility="{Binding DataContext.IsDeletion, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Inverted=True'}"
                                         kDrive:AncestorSource.AncestorType="ContentControl">
                                     <Button.Content>
-                                        <controls:SvgIcon Style="{StaticResource Infomaniak.Style.Icon.Size.XS}"
-                                                          UriString="{StaticResource Infomaniak.DS.Icons.Essentials.dots-vertical}"
-                                                          Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                                          HorizontalAlignment="Right" />
+                                        <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Essentials.dots-vertical}"
+                                                  Style="{StaticResource Style.Icon.Size.XS}"
+                                                  Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                                  HorizontalAlignment="Right" />
                                     </Button.Content>
                                     <Button.Flyout>
                                         <MenuFlyout Placement="RightEdgeAlignedTop">
                                             <MenuFlyoutItem Text="{Binding Converter={StaticResource BindingLocalizerHelper}, ConverterParameter='key=buttonOpenInExplorer'}"
                                                             Click="OpenInExplorer_Click">
                                                 <MenuFlyoutItem.Icon>
-                                                    <controls:SvgIcon  Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                                                       UriString="{StaticResource Infomaniak.DS.Icons.folder-circle-arrow-right}"
-                                                                       Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                                                    <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-circle-arrow-right}"
+                                                              Style="{StaticResource Style.Icon.Size.S}"
+                                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                                                 </MenuFlyoutItem.Icon>
                                             </MenuFlyoutItem>
                                             <MenuFlyoutItem Text="{Binding Converter={StaticResource BindingLocalizerHelper}, ConverterParameter='key=buttonOpenInKDrive'}"
                                                             Click="OpenOnline_Click">
                                                 <MenuFlyoutItem.Icon>
-                                                    <controls:SvgIcon  Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                                                       UriString="{StaticResource Infomaniak.DS.Icons.Products.kDrive-outline}"
-                                                                       Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                                                    <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Products.kdrive-outline}"
+                                                              Style="{StaticResource Style.Icon.Size.S}"
+                                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                                                 </MenuFlyoutItem.Icon>
                                             </MenuFlyoutItem>
                                             <MenuFlyoutItem Text="{Binding Converter={StaticResource BindingLocalizerHelper}, ConverterParameter='key=buttonCopyShareLink'}"
                                                             Click="CopyPublicLink_Click">
                                                 <MenuFlyoutItem.Icon>
-                                                    <controls:SvgIcon  Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                                                       UriString="{StaticResource Infomaniak.DS.Icons.Actions.share}"
-                                                                       Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                                                    <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.share}"
+                                                              Style="{StaticResource Style.Icon.Size.S}"
+                                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                                                 </MenuFlyoutItem.Icon>
                                             </MenuFlyoutItem>
                                         </MenuFlyout>
@@ -272,19 +278,19 @@
                                         Background="Transparent"
                                         kDrive:AncestorSource.AncestorType="ContentControl">
                                     <Button.Content>
-                                        <controls:SvgIcon Style="{StaticResource Infomaniak.Style.Icon.Size.XS}"
-                                                          UriString="{StaticResource Infomaniak.DS.Icons.Essentials.dots-vertical}"
-                                                          Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                                          HorizontalAlignment="Right" />
+                                        <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Essentials.dots-vertical}"
+                                                  Style="{StaticResource Style.Icon.Size.XS}"
+                                                  Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                                  HorizontalAlignment="Right" />
                                     </Button.Content>
                                     <Button.Flyout>
                                         <MenuFlyout Placement="RightEdgeAlignedTop">
                                             <MenuFlyoutItem Text="{x:Bind kDrive:Localizer.Instance.GetString('buttonFixErrors')}"
                                                             Click="NavigateToErrorPageButton_Click">
                                                 <MenuFlyoutItem.Icon>
-                                                    <controls:SvgIcon  Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                                                       UriString="{StaticResource Infomaniak.DS.Icons.Actions.triangle-alert-outline}"
-                                                                       Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                                                    <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.triangle-alert-outline}"
+                                                              Style="{StaticResource Style.Icon.Size.S}"
+                                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                                                 </MenuFlyoutItem.Icon>
                                             </MenuFlyoutItem>
                                         </MenuFlyout>
@@ -378,17 +384,17 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <controls:SvgIcon Grid.Column="0"
-                                              Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                              HorizontalAlignment="Left"
-                                              VerticalAlignment="Center"
-                                              Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                              UriString="{x:Bind Direction, Converter={StaticResource SyncActivityDirectionToIconConverter}, Mode=OneWay}">
-                                <ToolTipService.ToolTip>
-                                    <ToolTip Content="{x:Bind local:SyncActivityTable.GetSyncDirectionToolTip(Direction), Mode=OneWay}" />
-                                </ToolTipService.ToolTip>
-                            </controls:SvgIcon>
-
+                            <Viewbox>
+                                <PathIcon Grid.Column="0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      Data="{x:Bind Direction, Converter={StaticResource SyncActivityDirectionToPathDataConverter}, Mode=OneWay}"
+                                      Foreground="{ThemeResource TextFillColorSecondaryBrush}" >
+                                    <ToolTipService.ToolTip>
+                                        <ToolTip Content="{x:Bind local:SyncActivityTable.GetSyncDirectionToolTip(Direction), Mode=OneWay}" />
+                                    </ToolTipService.ToolTip>
+                                </PathIcon>
+                            </Viewbox>
                             <ContentControl Grid.Column="1"
                                             VerticalAlignment="Center"
                                             Content="{x:Bind Status, Mode=OneWay}"

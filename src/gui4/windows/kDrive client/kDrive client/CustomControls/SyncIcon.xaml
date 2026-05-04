@@ -29,10 +29,9 @@
         <converters:ColorToBrushConverter x:Key="ColorToBrushConverter" />
     </UserControl.Resources>
 
-    <Viewbox>
-        <controls:SvgIcon Height="{x:Bind Height, Mode=OneWay}"
-                          Width="{x:Bind Width, Mode=OneWay}"
-                          UriString="{x:Bind IconUri, Mode=OneWay}"
-                          Foreground="{x:Bind Sync.Drive.Color, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}" />
+    <Viewbox Height="{x:Bind Height, Mode=OneWay}"
+             Width="{x:Bind Width, Mode=OneWay}">
+        <PathIcon Data="{x:Bind Icon, Mode=OneWay}"
+                  Foreground="{x:Bind Sync.Drive.Color, Converter={StaticResource ColorToBrushConverter}, Mode=OneWay}" />
     </Viewbox>
 </UserControl>

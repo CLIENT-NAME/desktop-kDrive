@@ -31,7 +31,7 @@
       mc:Ignorable="d">
     <Page.Resources>
         <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-        <converters:FilePathToIconResourceKeyConverter x:Key="FilePathToIconResourceKeyConverter" />
+        <converters:FilePathToFileIconUriConverter x:Key="FilePathToFileIconUriConverter" />
     </Page.Resources>
     <Grid Margin="{StaticResource Infomaniak.Style.Thickness.Uniform.L}"
           RowSpacing="{StaticResource Infomaniak.Style.Spacing.XS}">
@@ -133,11 +133,12 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
-                                <controls:SvgIcon Grid.Column="0"
-                                                  ResourceKey="{x:Bind Path, Converter={StaticResource FilePathToIconResourceKeyConverter}}"
-                                                  VerticalAlignment="Center"
-                                                  Style="{StaticResource Infomaniak.Style.Icon.Size.XS}" />
-
+                                <Image Grid.Column="0"
+                                       Height="14">                 
+                                    <Image.Source>
+                                        <SvgImageSource UriSource="{x:Bind Path, Converter={StaticResource FilePathToFileIconUriConverter}}" />
+                                    </Image.Source>
+                                </Image>
                                 <TextBlock Grid.Column="1"
                                            VerticalAlignment="Center"
                                            Text="{x:Bind Path, Mode=OneWay}">
@@ -174,8 +175,11 @@
                         VerticalAlignment="Center"
                         Spacing="{StaticResource Infomaniak.Style.Spacing.S}"
                         Visibility="{x:Bind _errorPageVM.FilteredConflictErrors.Count, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Inverted=true', Mode=OneWay}">
-                <controls:SvgIcon Height="120"
-                                  UriString="{ThemeResource Infomaniak.Custom.Images.servin}" />
+                <Image Height="120" >
+                    <Image.Source>
+                        <SvgImageSource UriSource="{ThemeResource Infomaniak.Custom.Images.servin}" />
+                    </Image.Source>
+                </Image>
                 <TextBlock Text="{x:Bind kDrive:Localizer.Instance.GetString('labelNoConflictsFound')}"
                            FontWeight="SemiBold"
                            HorizontalAlignment="Center" />

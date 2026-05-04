@@ -225,9 +225,12 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <controls:SvgIcon Grid.Row="0"
-                                  UriString="{ThemeResource Infomaniak.Custom.Images.kDrive-folder}"
-                                  Width="130" />
+                <Image Grid.Row="0"
+                       Width="130">
+                    <Image.Source>
+                        <SvgImageSource UriSource="{ThemeResource Infomaniak.Custom.Images.kDrive-folder}" />
+                    </Image.Source>
+                </Image>
 
                 <StackPanel Grid.Row="1"
                             Spacing="{StaticResource Infomaniak.Style.Spacing.S}">

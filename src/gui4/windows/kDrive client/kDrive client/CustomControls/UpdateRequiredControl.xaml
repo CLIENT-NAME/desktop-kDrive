@@ -35,11 +35,13 @@
             CornerRadius="{StaticResource Infomaniak.Style.CornerRadius.Uniform.M}">
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">
-
-            <local:SvgIcon Height="134"
-                           UriString="{ThemeResource Infomaniak.Custom.Images.kDrive-folder-sync-warning}"
-                           Margin="{StaticResource Infomaniak.Style.Thickness.Bottom.XL}" />
-
+            <Image Grid.Column="0"
+                   Margin="{StaticResource Infomaniak.Style.Thickness.Bottom.XL}"
+                   Height="134">
+                <Image.Source>
+                    <SvgImageSource UriSource="{ThemeResource Infomaniak.Custom.Images.kDrive-folder-sync-warning}" />
+                </Image.Source>
+            </Image>
             <TextBlock  HorizontalAlignment="Center"
                         Style="{ThemeResource SubtitleTextBlockStyle}"
                         Text="{x:Bind kDrive:Localizer.Instance.GetString('updateRequiredTitle')}"

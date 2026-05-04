@@ -77,11 +77,11 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <controls:SvgIcon Grid.Column="0"
-                                      Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                      UriString="{StaticResource Infomaniak.DS.Icons.Products.kDrive}"
-                                      Foreground="{x:Bind DriveSetupContentDialogVM.CurrentSync.Drive.Color, Converter={StaticResource ColorToBrushConverter}}"
-                                      VerticalAlignment="Center" />
+                    <PathIcon Grid.Column="0"
+                              Style="{StaticResource Style.Icon.Size.S}"
+                              Data="{StaticResource Infomaniak.Ressources.DS.Icons.Products.kdrive}"
+                              Foreground="{x:Bind DriveSetupContentDialogVM.CurrentSync.Drive.Color, Converter={StaticResource ColorToBrushConverter}}"
+                              VerticalAlignment="Center" />
 
                     <TextBlock Grid.Column="1"
                                Text="{x:Bind DriveSetupContentDialogVM.CurrentSync.Drive.Name}"
@@ -137,9 +137,9 @@
                                 Style="{StaticResource Infomaniak.Style.Border.TextBorder}">
                             <StackPanel Orientation="Horizontal"
                                         Spacing="{StaticResource Infomaniak.Style.Spacing.XS}">
-                                <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder}"
-                                                  Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                  Style="{StaticResource Infomaniak.Style.Icon.Size.XXS}" />
+                                <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder}"
+                                          Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                          Style="{StaticResource Style.Icon.Size.XXS}" />
                                 <TextBlock Text="{x:Bind kDrive:Localizer.Instance.GetString('syncFolderCustomLocation')}"
                                            Visibility="{x:Bind DriveSetupContentDialogVM.CurrentSync.IsDefaultLocalPath, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Inverted=True' , Mode=OneWay}" />
                                 <TextBlock Text="{x:Bind kDrive:Localizer.Instance.GetString('syncFolderDefaultLocation')}"
@@ -245,10 +245,10 @@
                                     Orientation="Horizontal"
                                     Spacing="{StaticResource Infomaniak.Style.Spacing.XXS}"
                                     Visibility="{x:Bind DriveSetupContentDialogVM.CurrentSync.ExcludedNodeIds.Count, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter='Inverted=True' ,Mode=OneWay}">
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Actions.circle-check-outline}"
-                                              Height="12"
-                                              Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                              VerticalAlignment="Center" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.circle-check-outline}"
+                                      Height="12"
+                                      Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                      VerticalAlignment="Center" />
 
                             <TextBlock Text="{x:Bind kDrive:Localizer.Instance.GetString('onboardingExclusionSummaryNone')}"
                                        Style="{StaticResource BodyTextBlockStyle}"
@@ -260,10 +260,10 @@
                                     Orientation="Horizontal"
                                     Spacing="{StaticResource Infomaniak.Style.Spacing.XXS}"
                                     Visibility="{x:Bind DriveSetupContentDialogVM.CurrentSync.ExcludedNodeIds.Count, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Edition.pencil}"
-                                              Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                              Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                              VerticalAlignment="Center" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Edition.pencil}"
+                                      Style="{StaticResource Style.Icon.Size.S}"
+                                      Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                      VerticalAlignment="Center" />
 
                             <TextBlock Grid.Column="1"
                                        Text="{x:Bind kDrive:Localizer.Instance.GetString('onboardingExclusionSummarySome')}"

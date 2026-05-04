@@ -53,10 +53,10 @@
                               MinHeight="0"
                               Tag="{x:Bind}"
                               Click="CheckBox_Click" />
-                    <local:SvgIcon Grid.Column="1"
-                                   UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-outline}"
-                                   Foreground="{ThemeResource TextFillColorPrimary}"
-                                   Style="{StaticResource Infomaniak.Style.Icon.Size.S}" />
+                    <PathIcon Grid.Column="1"
+                              Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-outline}"
+                              Foreground="{ThemeResource TextFillColorPrimary}"
+                              Style="{StaticResource Style.Icon.Size.S}" />
 
                     <TextBlock Grid.Column="2"
                                Text="{x:Bind Node.Name}"
@@ -107,21 +107,21 @@
                               IsEnabled="False"
                               MinWidth="0"
                               MinHeight="0" />
-                    <local:SvgIcon Grid.Column="1"
-                                   UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-block}"
-                                   Foreground="{ThemeResource TextFillColorTertiary}"
-                                   Style="{StaticResource Infomaniak.Style.Icon.Size.S}" />
+                    <PathIcon Grid.Column="1"
+                              Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-block}"
+                              Foreground="{ThemeResource TextFillColorTertiary}"
+                              Style="{StaticResource Style.Icon.Size.S}" />
 
                     <TextBlock Grid.Column="2"
                                Foreground="{ThemeResource TextFillColorTertiary}"
                                Text="{x:Bind Node.Name}" />
 
-                    <local:SvgIcon Grid.Column="3"
-                                   UriString="{StaticResource Infomaniak.DS.Icons.Actions.circle-block}"
-                                   Foreground="{ThemeResource TextFillColorTertiary}"
-                                   HorizontalAlignment="Center"
-                                   Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                   Margin="{StaticResource Infomaniak.Style.Thickness.Right.L}" />
+                    <PathIcon Grid.Column="3"
+                              Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.circle-block}"
+                              Foreground="{ThemeResource TextFillColorTertiary}"
+                              HorizontalAlignment="Center"
+                              Style="{StaticResource Style.Icon.Size.S}"
+                              Margin="{StaticResource Infomaniak.Style.Thickness.Right.L}" />
                 </Grid>
             </TreeViewItem>
         </DataTemplate>

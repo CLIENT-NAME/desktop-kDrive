@@ -67,7 +67,7 @@
 
             <!-- Status indicator above the content -->
             <controls:DriveStatusIndicator Drive="{x:Bind ViewModel.SelectedSync.Drive, Mode=OneWay}"
-                                           IconUri="{StaticResource Infomaniak.DS.Icons.Actions.triangle-alert-outline}"
+                                           Icon="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.triangle-alert-outline}"
                                            IconForegroundBrush="{ThemeResource SystemFillColorCautionBrush}"
                                            IconBackgroundBrush="{ThemeResource SystemFillColorCautionBackgroundBrush}"
                                            RelativePanel.Above="ContentPanel"

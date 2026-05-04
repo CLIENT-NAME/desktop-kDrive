@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
  * Infomaniak kDrive - Desktop
  * Copyright (C) 2023-2026 Infomaniak Network SA
@@ -41,9 +41,9 @@
                                FontWeight="SemiBold" />
                     <StackPanel Orientation="Horizontal"
                                 Spacing="{StaticResource Infomaniak.Style.Spacing.XS}">
-                        <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Arrows.arrow-right}"
+                        <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Arrows.arrow-right}"
                                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                          Style="{StaticResource Infomaniak.Style.Icon.Size.XXS}" />
+                                          Style="{StaticResource Style.Icon.Size.XXS}" />
                         <TextBlock Text="{x:Bind kDrive:Localizer.Instance.GetString('labelRestoreToOriginalLocation')}"
                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                     </StackPanel>
@@ -58,9 +58,9 @@
                                FontWeight="SemiBold" />
                     <StackPanel Orientation="Horizontal"
                                 Spacing="{StaticResource Infomaniak.Style.Spacing.XS}">
-                        <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Arrows.arrow-right}"
+                        <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Arrows.arrow-right}"
                                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                          Style="{StaticResource Infomaniak.Style.Icon.Size.XXS}" />
+                                          Style="{StaticResource Style.Icon.Size.XXS}" />
 
                         <TextBlock x:Name="AccessRightsModifiedTextBlock"
                                    TextWrapping="Wrap"
@@ -77,9 +77,9 @@
                                FontWeight="SemiBold" />
                     <StackPanel Orientation="Horizontal"
                                 Spacing="{StaticResource Infomaniak.Style.Spacing.XS}">
-                        <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Arrows.arrow-right}"
+                        <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Arrows.arrow-right}"
                                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                          Style="{StaticResource Infomaniak.Style.Icon.Size.XXS}" />
+                                          Style="{StaticResource Style.Icon.Size.XXS}" />
                         <TextBlock x:Name="FolderDeletedTextBlock"
                                    TextWrapping="Wrap"
                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}" />

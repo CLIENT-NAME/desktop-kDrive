@@ -71,9 +71,8 @@
                     <!-- General - Language -->
                     <toolKit:SettingsCard Header="{x:Bind kDrive:Localizer.Instance.GetString('languageSetting'), Mode=OneWay}">
                         <toolKit:SettingsCard.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Communication.translate}"
-                                              Height="32"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Communication.translate}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsCard.HeaderIcon>
                         <toolKit:SettingsCard.Description>
                             <TextBlock Text="{x:Bind kDrive:Localizer.Instance.GetString('languageSettingWarning'), Mode=OneWay}"
@@ -101,9 +100,8 @@
                     <!-- General - Auto start -->
                     <toolKit:SettingsCard Header="{x:Bind kDrive:Localizer.Instance.GetString('openKDriveAtStartupSetting'), Mode=OneWay}">
                         <toolKit:SettingsCard.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Actions.power}"
-                                              Height="32"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.power}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsCard.HeaderIcon>
                         <ToggleSwitch IsOn="{x:Bind ViewModel.Settings.AutoStart, Mode=OneWay}"
                                       OnContent="{x:Bind kDrive:Localizer.Instance.GetString('labelActivated'), Mode=OneWay}"
@@ -114,9 +112,8 @@
                     <toolKit:SettingsCard Header="{x:Bind kDrive:Localizer.Instance.GetString('disableNotificationsSetting'), Mode=OneWay}"
                                           Visibility="{x:Bind ViewModel.Settings.ShowNotificationsSettings, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <toolKit:SettingsCard.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Essentials.bell}"
-                                              Height="32"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Essentials.bell}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsCard.HeaderIcon>
                         <Grid>
                             <ComboBox SelectedValuePath="Tag"
@@ -154,9 +151,8 @@
                     <!-- General - MoveToTrash -->
                     <toolKit:SettingsCard Header="{x:Bind kDrive:Localizer.Instance.GetString('moveDeletedFilesToRecycleBinSetting'), Mode=OneWay}">
                         <toolKit:SettingsCard.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Actions.trashbin}"
-                                              Height="32"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.trashbin}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsCard.HeaderIcon>
                         <ToggleSwitch x:Name="MoveToTrashToggleSwitch"
                                       OnContent="{x:Bind kDrive:Localizer.Instance.GetString('labelActivated'), Mode=OneWay}"
@@ -180,9 +176,8 @@
                     <!-- General - Need help -->
                     <toolKit:SettingsCard Header="{x:Bind kDrive:Localizer.Instance.GetString('needHelpSetting'), Mode=OneWay}">
                         <toolKit:SettingsCard.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Actions.circle-question}"
-                                              Height="32"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Actions.circle-question}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsCard.HeaderIcon>
                         <Button Content="{x:Bind kDrive:Localizer.Instance.GetString('buttonHelpdesk'), Mode=OneWay}"
                                 MinWidth="120"
@@ -192,9 +187,8 @@
                     <!-- General - Feedback -->
                     <toolKit:SettingsCard Header="{x:Bind kDrive:Localizer.Instance.GetString('feedbackSetting'), Mode=OneWay}">
                         <toolKit:SettingsCard.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Communication.bubble-speech}"
-                                              Height="32"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Communication.bubble-speech}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsCard.HeaderIcon>
                         <Button Content="{x:Bind kDrive:Localizer.Instance.GetString('buttonFeedback'), Mode=OneWay}"
                                 Click="FeedbackButton_Click" />
@@ -225,11 +219,11 @@
                                         Background="{ThemeResource LayerOnMicaBaseAltFillColorDefault}"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center">
-                                    <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Users.user}"
-                                                      Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                                      VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center" />
+                                    <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Users.user}"
+                                              Style="{StaticResource Style.Icon.Size.S}"
+                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Center" />
                                 </Border>
 
                                 <TextBlock Text="{x:Bind kDrive:Localizer.Instance.GetString('noAccountConnected'), Mode=OneWay}"
@@ -295,9 +289,8 @@
                                                                   Click="ManageDriveButton_Click"
                                                                   Tag="{x:Bind}">
                                                 <toolKit:SettingsCard.HeaderIcon>
-                                                    <controls:SvgIcon Height="32"
-                                                                      UriString="{StaticResource Infomaniak.DS.Icons.Products.kDrive }"
-                                                                      Foreground="{x:Bind Color, Converter={StaticResource ColorToBrushConverter}}" />
+                                                    <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Products.kdrive }"
+                                                              Foreground="{x:Bind Color, Converter={StaticResource ColorToBrushConverter}}" />
                                                 </toolKit:SettingsCard.HeaderIcon>
                                                 <ContentControl Content="{x:Bind}"
                                                                 ContentTemplateSelector="{StaticResource DriveDataTemplateSelector}" />
@@ -326,17 +319,15 @@
                                           IsClickEnabled="True"
                                           Click="SyncRulesCard_Clicked">
                         <toolKit:SettingsCard.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Edition.list-bullets}"
-                                              Height="32"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Edition.list-bullets}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsCard.HeaderIcon>
                     </toolKit:SettingsCard>
                     <!-- Advanced - Privacy -->
                     <toolKit:SettingsExpander Header="{x:Bind kDrive:Localizer.Instance.GetString('dataManagementSettings'), Mode=OneWay}">
                         <toolKit:SettingsExpander.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Users.user-cog}"
-                                              Height="32"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Users.user-cog}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsExpander.HeaderIcon>
                         <toolKit:SettingsExpander.Items>
                             <!-- Presentation -->
@@ -359,8 +350,8 @@
                                                   IsClickEnabled="True"
                                                   Click="PrivacySeeSourcesButton_Click">
                                 <toolKit:SettingsCard.ActionIcon>
-                                    <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Arrows.square-arrow-diagonal-up}"
-                                                      Foreground="{ThemeResource TextFillColorPrimary}" />
+                                    <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Arrows.square-arrow-diagonal-up}"
+                                              Foreground="{ThemeResource TextFillColorPrimary}" />
                                 </toolKit:SettingsCard.ActionIcon>
                             </toolKit:SettingsCard>
                         </toolKit:SettingsExpander.Items>
@@ -370,9 +361,8 @@
                                               Header="{x:Bind kDrive:Localizer.Instance.GetString('proxySettings'), Mode=OneWay}"
                                               Description="{x:Bind kDrive:Localizer.Instance.GetString('proxyConnectionDescription'), Mode=OneWay}">
                         <toolKit:SettingsExpander.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Network.globe}"
-                                              Height="32"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Network.globe}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsExpander.HeaderIcon>
                         <ComboBox SelectedValuePath="Tag"
                                   SelectedValue="{x:Bind ViewModel.Settings.ProxyConfig.Type, Converter={StaticResource ToStringConverter}, Mode=OneWay}"
@@ -456,9 +446,8 @@
                                               Header="{x:Bind kDrive:Localizer.Instance.GetString('debugLogsSettings'), Mode=OneWay}"
                                               Description="{x:Bind kDrive:Localizer.Instance.GetString('debugLogsDescription'), Mode=OneWay}">
                         <toolKit:SettingsExpander.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Users.users-circle-question-mark}"
-                                              Height="32"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Users.users-circle-question-mark}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsExpander.HeaderIcon>
                         <toolKit:SettingsExpander.Items>
                             <toolKit:SettingsCard Header="{x:Bind kDrive:Localizer.Instance.GetString('enableDebugLogsSetting'), Mode=OneWay}"
@@ -520,10 +509,10 @@
                                                   Click="OpenDebugFolderButton_Click"
                                                   IsActionIconVisible="False"
                                                   Visibility="{x:Bind EnableDebugLogsToggleSwitch.IsOn, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
-                                <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Arrows.square-arrow-diagonal-up}"
-                                                  Style="{StaticResource Infomaniak.Style.Icon.Size.XS}"
-                                                  Foreground="{ThemeResource TextFillColorPrimary}"
-                                                  Margin="{StaticResource Infomaniak.Style.Thickness.Right.XL}" />
+                                <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Arrows.square-arrow-diagonal-up}"
+                                          Style="{StaticResource Style.Icon.Size.XS}"
+                                          Foreground="{ThemeResource TextFillColorPrimary}"
+                                          Margin="{StaticResource Infomaniak.Style.Thickness.Right.XL}" />
                             </toolKit:SettingsCard>
                         </toolKit:SettingsExpander.Items>
                     </toolKit:SettingsExpander>
@@ -532,9 +521,8 @@
                     <!-- About - Privacy -->
                     <toolKit:SettingsExpander Header="{x:Bind kDrive:Localizer.Instance.GetString('aboutKDrive'), Mode=OneWay}">
                         <toolKit:SettingsExpander.HeaderIcon>
-                            <controls:SvgIcon UriString="{StaticResource Infomaniak.DS.Icons.Products.kDrive-outline}"
-                                              Height="32"
-                                              Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                            <PathIcon Data="{StaticResource Infomaniak.Ressources.DS.Icons.Products.kdrive-outline}"
+                                      Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
                         </toolKit:SettingsExpander.HeaderIcon>
                         <toolKit:SettingsExpander.Items>
                             <!-- General -->

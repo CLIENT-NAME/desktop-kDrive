@@ -18,29 +18,31 @@
 using Infomaniak.kDrive.Types;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Markup;
+using Microsoft.UI.Xaml.Media;
 using System;
+using System.Drawing.Drawing2D;
 
 namespace Infomaniak.kDrive.Converters
 {
-    public class SyncActivityDirectionToIconUriConverter : IValueConverter
+    public class SyncActivityDirectionToPathDataConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value is SyncDirection direction)
             {
                 // load icons from app resources
-                string result = "";
                 try
                 {
                     string resourceKey = direction switch
                     {
-                        SyncDirection.Up => "Infomaniak.Custom.Icons.Devices.computer-sync",
-                        SyncDirection.Down => "Infomaniak.Custom.Icons.Devices.cloud-sync",
-                        _ => "Infomaniak.Custom.Icons.Devices.computer-sync",
+                        SyncDirection.Up => "Infomaniak.Ressources.Custom.Icons.Devices.computer-sync",
+                        SyncDirection.Down => "Infomaniak.Ressources.Custom.Icons.Devices.cloud-sync",
+                        _ => "Infomaniak.Ressources.Custom.Icons.Devices.computer-sync",
                     };
-                    if (Application.Current.Resources[resourceKey] is string iconUriStr)
+                    if (Application.Current.Resources[resourceKey] is string iconPathData)
                     {
-                        result = iconUriStr;
+                        return (Geometry)XamlBindingHelper.ConvertValue(typeof(Geometry), iconPathData);
                     }
                     else
                     {
@@ -51,10 +53,7 @@ namespace Infomaniak.kDrive.Converters
                 {
                     Logger.Log(Logger.Level.Error, $"Failed to get resource for SyncActivityDirection {direction}: {ex.Message}");
                 }
-                if (targetType == typeof(string))
-                    return result;
-                else
-                    return new Uri(result);
+                return "";
             }
             Logger.Log(Logger.Level.Fatal, "SyncActivityDirectionToIconUriConverter: value is not a SyncActivityDirection.");
             throw new ArgumentException("Invalid item type", nameof(value));

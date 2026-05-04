@@ -30,10 +30,10 @@ namespace Infomaniak.kDrive.CustomControls
         }
 
         // DependencyProperty
-        public string IconUri
+        public string Icon
         {
-            get => (string)GetValue(IconUriProperty);
-            set => SetValue(IconUriProperty, value);
+            get => (string)GetValue(IconProperty);
+            set => SetValue(IconProperty, value);
         }
 
         public Brush IconForegroundBrush
@@ -54,8 +54,8 @@ namespace Infomaniak.kDrive.CustomControls
             set => SetValue(DriveProperty, value);
         }
 
-        public static readonly DependencyProperty IconUriProperty = DependencyProperty.Register(nameof(IconUri), typeof(string), typeof(DriveStatusIndicator), new PropertyMetadata(null));
-        public static readonly DependencyProperty DriveProperty = DependencyProperty.Register(nameof(DriveProperty), typeof(Drive), typeof(DriveStatusIndicator), new PropertyMetadata(null));
+        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(Geometry), typeof(DriveStatusIndicator), new PropertyMetadata(null));
+        public static readonly DependencyProperty DriveProperty = DependencyProperty.Register(nameof(Drive), typeof(Drive), typeof(DriveStatusIndicator), new PropertyMetadata(null));
         public static readonly DependencyProperty IconForegroundBrushProperty = DependencyProperty.Register(nameof(IconForegroundBrush), typeof(Brush), typeof(DriveStatusIndicator), new PropertyMetadata(null));
         public static readonly DependencyProperty IconBackgroundBrushProperty = DependencyProperty.Register(nameof(IconBackgroundBrush), typeof(Brush), typeof(DriveStatusIndicator), new PropertyMetadata(null));
     }

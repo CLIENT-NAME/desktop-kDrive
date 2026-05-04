@@ -128,10 +128,10 @@
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <controls:SvgIcon Grid.Column="0"
-                                              UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-outline}"
-                                              Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                              Foreground="{x:Bind AdvancedSyncSetupContentDialogVM.NewSync.Drive.Color, Converter={StaticResource ColorToBrushConverter}}" />
+                            <PathIcon Grid.Column="0"
+                                      Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-outline}"
+                                      Style="{StaticResource Style.Icon.Size.S}"
+                                      Foreground="{x:Bind AdvancedSyncSetupContentDialogVM.NewSync.Drive.Color, Converter={StaticResource ColorToBrushConverter}}" />
 
                             <TextBlock Grid.Column="1"
                                        Style="{ThemeResource CaptionTextBlockStyle}"
@@ -211,11 +211,11 @@
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <controls:SvgIcon Grid.Column="0"
-                                              UriString="{StaticResource Infomaniak.DS.Icons.Documents.folder-outline}"
-                                              Style="{StaticResource Infomaniak.Style.Icon.Size.S}"
-                                              Foreground="{x:Bind AdvancedSyncSetupContentDialogVM.NewSync.Drive.Color, Converter={StaticResource ColorToBrushConverter}}" />
-
+                            <PathIcon Grid.Column="0"
+                                      Data="{StaticResource Infomaniak.Ressources.DS.Icons.Documents.folder-outline}"
+                                      Style="{StaticResource Style.Icon.Size.S}"
+                                      Foreground="{x:Bind AdvancedSyncSetupContentDialogVM.NewSync.Drive.Color, Converter={StaticResource ColorToBrushConverter}}" />
+                            
                             <TextBlock Grid.Column="1"
                                        Style="{ThemeResource CaptionTextBlockStyle}"
                                        Text="{x:Bind AdvancedSyncSetupContentDialogVM.NewSync.RemotePath, Converter={StaticResource StringPathToFileNameConverter} , Mode=OneWay}"
