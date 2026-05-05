@@ -383,6 +383,9 @@ public enum KDriveLocalizable {
   public static let releaseChannelBeta = KDriveLocalizable.tr("Localizable", "releaseChannelBeta", fallback: "Beta")
   /// loco:698af24c3d21055870072b12
   public static let releaseChannelInternal = KDriveLocalizable.tr("Localizable", "releaseChannelInternal", fallback: "Internal")
+  /// loco:69eb8290d3fa21c4fb096d82
+  ///  * Tooltip shown on search results when file is not available locally and will open in browser.
+  public static let searchResultOpenInBrowserTooltip = KDriveLocalizable.tr("Localizable", "searchResultOpenInBrowserTooltip", fallback: "This file is not available locally and will be opened in your browser")
   /// loco:69eb8061e9130678990a5972
   ///  * Empty search state title in SearchSheetView before any query is entered.
   public static let searchYourFiles = KDriveLocalizable.tr("Localizable", "searchYourFiles", fallback: "Search your files")
@@ -467,7 +470,6 @@ public enum KDriveLocalizable {
   /// loco:698b1593acd7caac53091c62
   public static let syncRules = KDriveLocalizable.tr("Localizable", "syncRules", fallback: "Sync rules")
   public static let searchPlaceholder = KDriveLocalizable.tr("Localizable", "searchPlaceholder", fallback: "Search...")
-  public static let searchResultOpenInBrowserTooltip = KDriveLocalizable.tr("Localizable", "searchResultOpenInBrowserTooltip", fallback: "This file is not available locally and will be opened in your browser")
   public static let searchYourFiles = KDriveLocalizable.tr("Localizable", "searchYourFiles", fallback: "Search your files")
   public static let typeToStartSearching = KDriveLocalizable.tr("Localizable", "typeToStartSearching", fallback: "Type to start searching")
   /// loco:69cb7b4436165087ff055e92
