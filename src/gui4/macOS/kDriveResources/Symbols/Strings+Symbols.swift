@@ -302,6 +302,8 @@ public enum KDriveLocalizable {
   public static let needHelpSetting = KDriveLocalizable.tr("Localizable", "needHelpSetting", fallback: "Need help?")
   /// loco:69ce15f8ac7c0ee6d7099c02
   public static let networkSettings = KDriveLocalizable.tr("Localizable", "networkSettings", fallback: "Network")
+  /// loco:6989f957dd64bb04d70f39a2
+  public static let noResultsFound = KDriveLocalizable.tr("Localizable", "noResultsFound", fallback: "No results found")
   /// loco:698b10ad0c20e31c9c00a5c2
   public static let notificationsDisabledAlways = KDriveLocalizable.tr("Localizable", "notificationsDisabledAlways", fallback: "Always")
   /// loco:698b1086dc2a328c000cfd92

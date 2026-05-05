@@ -437,6 +437,9 @@
 /* loco:69ce15f8ac7c0ee6d7099c02 */
 "networkSettings" = "Network";
 
+/* loco:6989f957dd64bb04d70f39a2 */
+"noResultsFound" = "No results found";
+
 /* loco:698b0aaddee0bf9fb206a694 */
 "notSyncedDrive" = "Not synchronized";
 
