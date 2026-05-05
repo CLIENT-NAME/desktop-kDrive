@@ -383,6 +383,9 @@ public enum KDriveLocalizable {
   public static let releaseChannelBeta = KDriveLocalizable.tr("Localizable", "releaseChannelBeta", fallback: "Beta")
   /// loco:698af24c3d21055870072b12
   public static let releaseChannelInternal = KDriveLocalizable.tr("Localizable", "releaseChannelInternal", fallback: "Internal")
+  /// loco:69eb8061e9130678990a5972
+  ///  * Empty search state title in SearchSheetView before any query is entered.
+  public static let searchYourFiles = KDriveLocalizable.tr("Localizable", "searchYourFiles", fallback: "Search your files")
   /// loco:698b2df25c57be025b0ecfd2
   public static let sentryDescription = KDriveLocalizable.tr("Localizable", "sentryDescription", fallback: "Sentry is a tool hosted and managed exclusively by Infomaniak to monitor the stability of the application in real time and automatically report any technical errors to our developers.\n\nThis data allows our team to quickly fix and optimize the application, resulting in a better user experience for you.")
   /// loco:68cd386502633dee14000352
