@@ -315,8 +315,6 @@ public enum KDriveLocalizable {
   public static let onboardingAdvancedSettingsDriveCustomizeLocationTip = KDriveLocalizable.tr("Localizable", "onboardingAdvancedSettingsDriveCustomizeLocationTip", fallback: "The selected folder must be empty for synchronization to work correctly.")
   /// loco:698c5c378bdea123d60afff7
   public static let onboardingAdvancedSettingsDriveExclusionDescription = KDriveLocalizable.tr("Localizable", "onboardingAdvancedSettingsDriveExclusionDescription", fallback: "Choose the folders to synchronize on this computer:")
-  /// loco:698c5d476258b6cb2e047e2a
-  public static let onboardingAdvancedSettingsDriveExclusionTip = KDriveLocalizable.tr("Localizable", "onboardingAdvancedSettingsDriveExclusionTip", fallback: "Unselected folders will remain accessible online.")
   /// loco:698c62f8bde3b880ce05ea53
   public static let onboardingAdvancedSettingsDriveSelectionDescription = KDriveLocalizable.tr("Localizable", "onboardingAdvancedSettingsDriveSelectionDescription", fallback: "For each kDrive, you can choose where it is synced on your computer and which folders to synchronize.")
   /// loco:698c5f7af0e0abf8b4088952
@@ -390,6 +388,8 @@ public enum KDriveLocalizable {
   /// loco:69eb8061e9130678990a5972
   ///  * Empty search state title in SearchSheetView before any query is entered.
   public static let searchYourFiles = KDriveLocalizable.tr("Localizable", "searchYourFiles", fallback: "Search your files")
+  /// loco:698b07172a4fff6e66027c94
+  public static let selectFoldersToSyncDescription = KDriveLocalizable.tr("Localizable", "selectFoldersToSyncDescription", fallback: "Unselected folders will not be downloaded to your device. They will remain available online and will not be deleted.")
   /// loco:698b2df25c57be025b0ecfd2
   public static let sentryDescription = KDriveLocalizable.tr("Localizable", "sentryDescription", fallback: "Sentry is a tool hosted and managed exclusively by Infomaniak to monitor the stability of the application in real time and automatically report any technical errors to our developers.\n\nThis data allows our team to quickly fix and optimize the application, resulting in a better user experience for you.")
   /// loco:68cd386502633dee14000352
