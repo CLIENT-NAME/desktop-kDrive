@@ -553,8 +553,9 @@
 /* loco:691deb477145f10ab4052cd4 */
 "onboardingLoginHintWebAuth" = "Connexion depuis votre navigateur…";
 
-/* loco:68e673754d80559c460bdf02 */
-"onboardingLoginTitle" = "Bienvenue dans kDrive !";
+
+/* loco:68e8fa27d09187683c0679b2 */
+"onboardingLoginTitle" = "Bienvenue dans kDrive";
 
 /* loco:6931a1769dc60cb1820f5fe3 */
 "onboardingSynchronizationAppReadyDescription" = "Vos fichiers sont prêts à être synchronisés en toute sécurité sur votre ordinateur.";
