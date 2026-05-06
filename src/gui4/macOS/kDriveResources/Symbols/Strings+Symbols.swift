@@ -18,6 +18,12 @@ public enum KDriveLocalizable {
   public static let accessibilityActivityTypePicker = KDriveLocalizable.tr("Localizable", "accessibilityActivityTypePicker", fallback: "Visible activities")
   /// loco:69a6d9dd08a75d40410b53f6
   public static let accessibilityBetaProgramPicker = KDriveLocalizable.tr("Localizable", "accessibilityBetaProgramPicker", fallback: "Choosing a distribution channel")
+  /// loco:69fa0b22dbdab357240dcb12
+  ///  * VoiceOver reads this when the user focuses the X button that clears the search field
+  public static let accessibilitySearchClear = KDriveLocalizable.tr("Localizable", "accessibilitySearchClear", fallback: "Clear search")
+  /// loco:69fa0b2668d2d58f030a2422
+  ///  * VoiceOver reads this when the search sheet opens so the user knows what modal they entered
+  public static let accessibilitySearchSheetLabel = KDriveLocalizable.tr("Localizable", "accessibilitySearchSheetLabel", fallback: "Search your files")
   /// loco:69b275fb3440db13f0011c03
   public static let accessibilitySelectSynchroMode = KDriveLocalizable.tr("Localizable", "accessibilitySelectSynchroMode", fallback: "Select a synchronization mode")
   /// loco:6981cb92c70239c9ed0d45a3

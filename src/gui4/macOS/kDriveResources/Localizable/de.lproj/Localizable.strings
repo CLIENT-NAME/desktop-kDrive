@@ -20,6 +20,15 @@
 /* loco:69a6d9dd08a75d40410b53f6 */
 "accessibilityBetaProgramPicker" = "Wählen Sie den Vertriebskanal";
 
+
+/* loco:69fa0b22dbdab357240dcb12
+ * VoiceOver reads this when the user focuses the X button that clears the search field */
+"accessibilitySearchClear" = "Suche löschen";
+
+/* loco:69fa0b2668d2d58f030a2422
+ * VoiceOver reads this when the search sheet opens so the user knows what modal they entered */
+"accessibilitySearchSheetLabel" = "Dateien durchsuchen";
+
 /* loco:69b275fb3440db13f0011c03 */
 "accessibilitySelectSynchroMode" = "Wählen Sie einen Synchronisationsmodus";
 
