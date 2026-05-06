@@ -37,7 +37,6 @@ final class MainWindowController: NSWindowController {
     // periphery:ignore - We keep a strong reference on the viewController being presented
     private var viewController: NSViewController?
     private var bindStore = Set<AnyCancellable>()
-    private var sheetClickMonitor: Any?
 
     init() {
         let window = NSWindow(
