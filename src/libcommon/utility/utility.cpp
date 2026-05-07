@@ -171,6 +171,11 @@ QString CommonUtility::platformName() {
 }
 
 Platform CommonUtility::platform() {
+    static Platform platform = Platform::Unknown;
+    if (platform != Platform::Unknown) {
+        return platform;
+    }
+
     const QString name = platformName();
     if (name.contains("macos", Qt::CaseInsensitive)) return Platform::MacOS;
     if (name.contains("windows", Qt::CaseInsensitive)) {
@@ -198,13 +203,7 @@ const std::string &CommonUtility::userAgentString() {
 }
 
 const std::string &CommonUtility::currentVersion() {
-    static std::string str;
-    if (str.empty()) {
-        std::stringstream ss;
-        ss << KDRIVE_VERSION_MAJOR << "." << KDRIVE_VERSION_MINOR << "." << KDRIVE_VERSION_PATCH << "." << KDRIVE_VERSION_BUILD;
-        str = ss.str();
-    }
-    return str;
+    return KDRIVE_VERSION_STRING;
 }
 
 const std::string &CommonUtility::versionTag() {
@@ -714,7 +713,7 @@ bool CommonUtility::compressFile(const QString &originalName, const QString &tar
 #endif
 }
 
-Language CommonUtility::strToLanguage(const QString& lang) {
+Language CommonUtility::strToLanguage(const QString &lang) {
     if (lang == "en") {
         return Language::English;
     } else if (lang == "fr") {
@@ -844,9 +843,9 @@ bool CommonUtility::languageCodeIsEnglish(const QString &languageCode) {
 }
 
 bool CommonUtility::isSupportedLanguage(const QString &languageCode) {
-    static const std::unordered_set<QString> supportedLanguages = {englishCode,   frenchCode,  germanCode,     italianCode,
-                                                                   spanishCode,   dutchCode,   swedishCode,    portugueseCode, 
-                                                                   polishCode,    norwegianCode, finnishCode, danishCode,     greekCode};
+    static const std::unordered_set<QString> supportedLanguages = {
+            englishCode,    frenchCode, germanCode,    italianCode, spanishCode, dutchCode, swedishCode,
+            portugueseCode, polishCode, norwegianCode, finnishCode, danishCode,  greekCode};
     return supportedLanguages.contains(languageCode);
 }
 
