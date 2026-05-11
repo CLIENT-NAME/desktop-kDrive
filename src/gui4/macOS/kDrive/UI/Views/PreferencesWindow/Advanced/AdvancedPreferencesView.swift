@@ -47,7 +47,7 @@ enum AdvancedPreferencesItem: String, Identifiable, CaseIterable {
     var isDisabled: Bool {
         switch self {
         case .network:
-			return false
+            return false
         case .dataManagement:
             return false
         default:
