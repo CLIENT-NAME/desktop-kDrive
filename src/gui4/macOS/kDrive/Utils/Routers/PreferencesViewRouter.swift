@@ -61,4 +61,7 @@ enum PreferencesViewDetail: RouterDetail {
 
     case dataManagement
     case dataManagementDetail(DataManagementItem)
+
+    case synchroRules
+    case synchroRulesDetail(SynchroRulesItem)
 }
