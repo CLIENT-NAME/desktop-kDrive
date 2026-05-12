@@ -2831,7 +2831,7 @@ ExitInfo AppServer::updateUserInfo(User &user) {
 
         if (drives.empty()) {
             deleteAccount(account.dbId());
-            return;
+            return ExitCode::Ok;
         }
 
         if (const auto exitInfo = updateAccount(account); !exitInfo) return exitInfo;
