@@ -420,10 +420,6 @@ void TestSyncPalWorker::testHandleBackError() {
 
     auto *syncPalWorker = mockSyncPal->getSyncPalWorker().get();
 
-    constexpr int64_t baseDelay = 60000;
-    constexpr int64_t maxDelay = 14400000;
-    constexpr double factor = 2.0;
-
     // Build a minimal mock worker that exits with BackError.
     auto makeBackErrorWorker = [&syncPal = _syncPal]() -> std::shared_ptr<ISyncWorker> {
         auto w = std::make_shared<MockPlatformInconsistencyCheckerWorker>(syncPal, "Mock PIC BackError", "M_PICB");
@@ -433,7 +429,7 @@ void TestSyncPalWorker::testHandleBackError() {
 
     // Simulate several consecutive BackError exits and verify exponential growth.
     for (int64_t i = 0; i < 10; ++i) {
-        const int64_t expected = std::min(static_cast<int64_t>(baseDelay * std::pow(factor, i)), maxDelay);
+        const int64_t expected = std::min(static_cast<int64_t>(backoffvarible::baseDelay * std::pow(backoffvarible::multiplicativeFactor, i)), backoffvarible::maxDelay);
 
         auto w = makeBackErrorWorker();
         w->start();
@@ -461,7 +457,7 @@ void TestSyncPalWorker::testHandleBackError() {
     w->waitForExit();
 
     syncPalWorker->handleBackError();
-    CPPUNIT_ASSERT_EQUAL(baseDelay, syncPalWorker->pauseDuration());
+    CPPUNIT_ASSERT_EQUAL(backoffvarible::baseDelay, syncPalWorker->pauseDuration());
 }
 
 } // namespace KDC
