@@ -28,10 +28,12 @@ namespace KDC {
 class GetFilesInDirectoryJob : public AbstractTokenNetworkJob {
     public:
         /// @throw JobException
+
         GetFilesInDirectoryJob(UserDbId userDbId, DriveId driveId, RemoteNodeId remoteDirId, Cursor cursorInput = {},
                                TranslationMode translationMode = TranslationMode::None);
         /// @throw JobException
         explicit GetFilesInDirectoryJob(DriveDbId driveDbId, RemoteNodeId remoteDirId, Cursor cursorInput = {},
+
                                         TranslationMode translationMode = TranslationMode::None);
 
         void setListingConf(const ListingConf &listingConf) { _listingConf = listingConf; };
@@ -58,10 +60,16 @@ class GetFilesInDirectoryJob : public AbstractTokenNetworkJob {
         // The node info list as returned by the backend API v2
         [[nodiscard]] ExitInfo v2RemoteNodeInfoList(RemoteNodeInfoList &nodeInfoList) const;
 
+        static ExitInfo extractName(const Poco::JSON::Object::Ptr &obj, SyncName &name);
+        ExitInfo extractPath(const Poco::JSON::Object::Ptr &obj, SyncName &path) const;
+        static ExitInfo extractAccessDenied(const Poco::JSON::Object::Ptr &obj, bool &accessDenied);
+
         // Fill the `_remoteNodeInfoList` data structure with the deserialization
         // of the JSON result's `data` field.
+        // Note: items with empty normalized name or path are ignored and not added to the list.
         ExitInfo deserializeDataArray();
         /// @throw JobException
+
         void translateRemoteDirIdFromV2ToV3(TranslationMode translationMode);
 
         // The remote identifier of the folder whose file list is queried.

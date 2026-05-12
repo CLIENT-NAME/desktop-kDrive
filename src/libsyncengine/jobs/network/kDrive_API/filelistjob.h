@@ -24,20 +24,22 @@
 #include "info/nodeinfo.h"
 
 namespace KDC {
+struct JobException;
 
 class FileListJob : public SyncJob {
     public:
         /// @throw DbError
-        FileListJob(UserDbId userDbId, DriveDbId driveId, NodeId fileId = {},
+        FileListJob(UserDbId userDbId, DriveDbId driveId, RemoteNodeId fileId = {},
                     TranslationMode translationMode = TranslationMode::None);
         /// @throw DbError
-        explicit FileListJob(DriveDbId driveDbId, NodeId fileId = {}, TranslationMode translationMode = TranslationMode::None);
+        explicit FileListJob(DriveDbId driveDbId, RemoteNodeId fileId = {},
+                             TranslationMode translationMode = TranslationMode::None);
 
         void setListingConf(const ListingConf &listingConf) { _listingConf = listingConf; };
 
         // The return value of this accessor is only meaningful when all the responses of the
         // underlying file list requests have been handled.
-        [[nodiscard]] ExitInfo nodeInfoList(RemoteNodeInfoList &nodeInfoList) const {
+        [[nodiscard]] ExitInfo remoteNodeInfoList(RemoteNodeInfoList &nodeInfoList) const {
             return v2RemoteNodeInfoList(nodeInfoList);
         };
 
@@ -47,7 +49,7 @@ class FileListJob : public SyncJob {
         [[nodiscard]] const RemoteNodeInfoList &v3RemoteNodeInfoList() const { return _remoteNodeInfoList; };
 
     protected:
-        [[nodiscard]] std::string getConstructorFailureLogMessage(const std::exception &e) const;
+        [[nodiscard]] std::string getConstructorFailureLogMessage(const JobException &e) const;
         [[nodiscard]] std::string getRunSynchronouslyFailureLogMessage(const ExitInfo &exitInfo) const;
 
         UserDbId _userDbId{0};

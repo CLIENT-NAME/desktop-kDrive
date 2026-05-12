@@ -322,9 +322,11 @@ ExitInfo LocalFileSystemObserverWorker::changesDetected(
                                                                                       << L" (" << CommonUtility::s2ws(itemId)
                                                                                       << L")");
                 } else {
-                    LOGW_SYNCPAL_WARN(_logger, L"Failed to remove item: " << Utility::formatSyncPath(absolutePath) << L" ("
-                                                                          << CommonUtility::s2ws(itemId) << L")");
+                    LOGW_SYNCPAL_WARN(_logger, L"Failed to remove item from local snapshot: "
+                                                       << Utility::formatSyncPath(absolutePath) << L" ("
+                                                       << CommonUtility::s2ws(itemId) << L")");
                     invalidateSnapshot();
+
                     return ExitCode::DataError;
                 }
                 continue;
@@ -340,8 +342,9 @@ ExitInfo LocalFileSystemObserverWorker::changesDetected(
                                                         << Utility::formatSyncPath(absolutePath) << L" ("
                                                         << CommonUtility::s2ws(previousItemId) << L")");
                 } else {
-                    LOGW_SYNCPAL_WARN(_logger, L"Failed to delete item: " << Utility::formatSyncPath(absolutePath) << L" ("
-                                                                          << CommonUtility::s2ws(previousItemId) << L")");
+                    LOGW_SYNCPAL_WARN(_logger, L"Failed to remove item from local snapshot: "
+                                                       << Utility::formatSyncPath(absolutePath) << L" ("
+                                                       << CommonUtility::s2ws(previousItemId) << L")");
                     invalidateSnapshot();
                     return ExitCode::DataError;
                 }

@@ -45,8 +45,7 @@ class TestNetworkJobs : public CppUnit::TestFixture, public TestBaseWithParmsDb 
         CPPUNIT_TEST(testGetAvatar);
         CPPUNIT_TEST(testGetDriveList);
         CPPUNIT_TEST(testGetFileInfo);
-        CPPUNIT_TEST(testGetFileList);
-        CPPUNIT_TEST(testGetFileListWithCursor);
+        CPPUNIT_TEST(testGetFilesInDirectory);
         CPPUNIT_TEST(testFullFileListWithCursorCsv);
         CPPUNIT_TEST(testFullFileListWithCursorCsvZip);
         CPPUNIT_TEST(testFullFileListWithCursorCsvBlacklist);
@@ -90,8 +89,7 @@ class TestNetworkJobs : public CppUnit::TestFixture, public TestBaseWithParmsDb 
         void testGetAvatar();
         void testGetDriveList();
         void testGetFileInfo();
-        void testGetFileList();
-        void testGetFileListWithCursor();
+        void testGetFilesInDirectory();
         void testFullFileListWithCursorCsv();
         void testFullFileListWithCursorCsvZip();
         void testFullFileListWithCursorCsvBlacklist();
@@ -123,6 +121,8 @@ class TestNetworkJobs : public CppUnit::TestFixture, public TestBaseWithParmsDb 
 
     private:
         bool createTestFiles();
+        bool existsInRemoteDirectory(const SyncName &fileName, const RemoteNodeId &remoteDirId,
+                                     NodeType nodeType = NodeType::File);
 
         void testUpload(SyncTime creationTimeIn, SyncTime modificationTimeIn, SyncTime &creationTimeOut,
                         SyncTime &modificationTimeOut);
@@ -137,6 +137,5 @@ class TestNetworkJobs : public CppUnit::TestFixture, public TestBaseWithParmsDb 
         static uint64_t _nbParallelThreads;
 
         std::shared_ptr<CacheDirectory> _cacheDirectory;
-
 };
 } // namespace KDC

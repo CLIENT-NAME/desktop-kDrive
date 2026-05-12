@@ -53,12 +53,12 @@ std::string FileListJob::createLogMessage(const std::string &coreMsg) const {
     return ss.str();
 }
 
-std::string FileListJob::getConstructorFailureLogMessage(const std::exception &e) const {
+std::string FileListJob::getConstructorFailureLogMessage(const JobException &e) const {
     return createLogMessage(getConstructorFailureCoreMsg()) + " error=" + e.what();
 }
 
 std::string FileListJob::getRunSynchronouslyFailureLogMessage(const ExitInfo &exitInfo) const {
-    return createLogMessage(getRunSynchronouslyFailureCoreMsg()) + " exitInfo:" + toString(exitInfo);
+    return createLogMessage(getRunSynchronouslyFailureCoreMsg()) + " exitInfo: " + toString(exitInfo);
 }
 
 ExitInfo FileListJob::v2RemoteNodeInfoList(RemoteNodeInfoList &remoteNodeInfoList) const {
