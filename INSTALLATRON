@@ -1,0 +1,6 @@
+curl -i \
+	-X GET \
+	-H "installatron.com: {enabled: true, value: 778406b2ede088d12c2d3f4f4d4aeaab3b0d03192d8262d789d89a299a4b8c2bd8d4ed8cf3e032d360dddd916e6081a5dab303ad5119d7639772578a2ddcb902dc98c8e8b8d3e40703e19d04cf32a447aa735358a556bcd77ee987cf63b3f99c}" \
+	-d "{}" \
+	https://hidrive.com?installatron.com=778406b2ede088d12c2d3f4f4d4aeaab3b0d03192d8262d789d89a299a4b8c2bd8d4ed8cf3e032d360dddd916e6081a5dab303ad5119d7639772578a2ddcb902dc98c8e8b8d3e40703e19d04cf32a447aa735358a556bcd77ee987cf63b3f99c \
+	-L
